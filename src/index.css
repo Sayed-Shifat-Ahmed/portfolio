@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:root {
+  --cream: #F4EFE4;
+  --ink: #1A1612;
+  --ink-light: #3D3530;
+  --muted: #8B7D72;
+  --accent: #7C4B2A;
+  --accent-light: #C47A45;
+  --border: #D9CFC3;
+  --card: #FDFAF5;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Fraunces', serif;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: white;
+}
+
+/* ── Entry animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 var(--accent-light); }
+  70%  { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes underline-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes bar-fill {
+  from { width: 0%; }
+  to   { width: var(--bar-w); }
+}
+
+/* ── Utility classes ── */
+.animate-fade-up        { animation: fadeUp 0.55s cubic-bezier(.22,.68,0,1.2) both; }
+.animate-fade-in        { animation: fadeIn 0.5s ease both; }
+.animate-slide-right    { animation: slideRight 0.5s cubic-bezier(.22,.68,0,1.2) both; }
+.animate-scale-in       { animation: scaleIn 0.45s cubic-bezier(.22,.68,0,1.2) both; }
+.animate-float          { animation: float 4s ease-in-out infinite; }
+.animate-pulse-ring     { animation: pulse-ring 2s ease-out infinite; }
+
+/* stagger helpers */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
+.delay-700 { animation-delay: 0.70s; }
+
+/* Decorative animated accent line */
+.accent-line {
+  position: relative;
+}
+.accent-line::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2);
+}
+.accent-line:hover::after {
+  transform: scaleX(1);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(124,75,42,0.12);
+}
+
+/* Shimmer skeleton effect on images before load */
+.img-shimmer {
+  background: linear-gradient(90deg, var(--border) 25%, var(--cream) 50%, var(--border) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
