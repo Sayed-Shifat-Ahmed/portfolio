@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSA-Research</title>
+    <script>
+    try { if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark' } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="paper-viewer.css" />
+</head>
+
+<body>
+    <div class="page">
+        <div id="site-header"></div>
+
+      <main class="panels rd-main">
+        <section class="rd-bar">
+          <div class="container rd-bar-in">
+            <div class="rd-info">
+              <a class="rd-back mono" href="research.html">← All papers</a>
+              <h1 class="rd-title serif" id="rdTitle">Loading…</h1>
+              <p class="rd-authors" id="rdAuthors"></p>
+              <p class="rd-venue" id="rdVenue"></p>
+              <div class="tags" id="rdTags"></div>
+            </div>
+            <div class="rd-actions mono" id="rdActions"></div>
+          </div>
+        </section>
+
+        <div class="rd-viewer" id="rdViewer">
+          <div class="rd-toolbar mono" id="rdBar" hidden>
+            <span id="rdPg">Page 1 / 1</span>
+            <span class="rd-tb">
+              <button type="button" id="rdZOut" aria-label="Zoom out">−</button>
+              <span id="rdZ">100%</span>
+              <button type="button" id="rdZIn" aria-label="Zoom in">+</button>
+              <button type="button" id="rdZFit">Fit</button>
+            </span>
+          </div>
+          <div class="rd-pages" id="rdPages"></div>
+          <p class="rd-status mono" id="rdStatus">Loading PDF…</p>
+          <div class="rd-fallback">
+            <p id="rdFbMsg">The PDF could not be displayed here.</p>
+            <a class="pv-btn mono" id="rdFbLink" target="_blank" rel="noreferrer">Open the PDF ↗</a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../layout.js"></script>
+<script src="../script.js"></script>
+    <script src="papers.js"></script>
+    <script src="paper-reader.js"></script>
+</body>
+
+</html>

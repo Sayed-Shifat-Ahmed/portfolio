@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3b2411" />
+  <meta name="description" content="Browse digital library books and open them from Google Drive." />
+  <title>Books | Digital Library</title>
+  <link rel="stylesheet" href="books.css" />
+  <script src="books-render.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="EEE_digital_library.html" aria-label="Digital Library home">
+      <span class="brand-icon" aria-hidden="true">▤</span>
+      <span>EEE <br />Digital Library</span>
+    </a>
+    <a class="back-link" href="index.html"><span aria-hidden="true">←</span> All collections</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">DIGITAL COLLECTION</p>
+        <h1 id="categoryTitle">Electrical Books</h1>
+        <p class="subtitle">Choose a book to open its Google Drive resource.</p>
+      </div>
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="bookSearch" type="search" placeholder="Search books or authors…" aria-label="Search books or authors" />
+      </label>
+    </section>
+
+    <div class="results-line">
+      <span id="resultCount">0 books</span>
+      <span class="drive-note"><span class="drive-dot"></span> Google Drive resources</span>
+    </div>
+
+    <section class="book-grid" id="bookGrid" aria-label="Books"></section>
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon" aria-hidden="true">⌕</div>
+      <h2>No books found</h2>
+      <p>Try a different search, or add more titles in <code>books-render.js</code>.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <span><strong>Digital Library</strong> · Learn something new every day.</span>
+    <a href="EEE_digital_library.html">Back to collections</a>
+  </footer>
+</body>
+</html>

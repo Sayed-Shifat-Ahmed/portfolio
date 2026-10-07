@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3b2411" />
+  <meta name="description" content="Explore books, journals, and digital resources across engineering and core subjects." />
+  <title>Digital Library — Discover a World of Knowledge</title>
+  <style>
+    :root {
+      --cream: #fffdf5;
+      --paper: #f8f3e8;
+      --brown: #3b2411;
+      --brown-2: #68421f;
+      --ink: #15130f;
+      --muted: #66615a;
+      --line: rgba(69, 46, 22, .10);
+      --shadow: 0 5px 18px rgba(48, 31, 14, .07);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .hero {
+      position: relative;
+      min-height: 360px;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--cream);
+      display: flex;
+      align-items: stretch;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      z-index: -2;
+      filter: saturate(.96) contrast(1.04);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(90deg, #fffdf5 0%, #fffdf5 36%, rgba(255,253,245,.9) 42%, rgba(255,253,245,.72) 49%, rgba(37,20,8,.06) 76%, rgba(37,20,8,.2) 100%);
+      pointer-events: none;
+    }
+    .hero-panel {
+      position: relative;
+      width: min(100%, 1280px);
+      min-height: 360px;
+      margin: 0 auto;
+      padding: 26px clamp(22px, 5vw, 76px) 40px;
+      background: transparent;
+      border-radius: 0;
+      clip-path: none;
+    }
+    .hero-panel::after { display: none; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--brown);
+      font-weight: 800;
+      font-size: 25px;
+      line-height: .98;
+      letter-spacing: -.8px;
+    }
+    .brand-mark { width: 46px; height: 43px; flex: 0 0 auto; }
+    .hero-copy { max-width: 510px; margin-top: 40px; }
+    h1 {
+      margin: 0;
+      max-width: 520px;
+      font-size: clamp(2.2rem, 3.15vw, 3.35rem);
+      line-height: 1.12;
+      letter-spacing: -1.7px;
+      font-weight: 800;
+    }
+    .hero-copy p {
+      margin: 5px 0 0;
+      max-width: 510px;
+      color: #3f3c37;
+      font-size: clamp(1.02rem, 1.4vw, 1.35rem);
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .primary-link, .secondary-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 18px; border-radius: 999px;
+      font-size: .95rem; font-weight: 700; transition: transform .2s, background .2s;
+    }
+    .primary-link { background: var(--brown); color: white; }
+    .secondary-link { border: 1px solid rgba(59,36,17,.22); color: var(--brown); }
+    .primary-link:hover, .secondary-link:hover { transform: translateY(-2px); }
+    .collection-bar {
+      min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 13px;
+      padding: 12px 20px; color: #fffaf0; background: var(--brown);
+      font-size: clamp(1.15rem, 1.8vw, 1.55rem); font-weight: 750; letter-spacing: -.3px;
+    }
+    .collection-bar svg { width: 27px; height: 27px; }
+    main { padding: 22px clamp(20px, 2.7vw, 44px) 52px; }
+    .section-intro {
+      display: flex; justify-content: space-between; align-items: end; gap: 20px;
+      max-width: 1600px; margin: 0 auto 19px;
+    }
+    .section-intro h2 { margin: 0; font-size: 1.3rem; letter-spacing: -.5px; }
+    .section-intro p { margin: 6px 0 0; color: var(--muted); font-size: .93rem; }
+    .search-wrap { position: relative; width: min(100%, 310px); }
+    .search-wrap input {
+      width: 100%; min-height: 43px; padding: 0 15px 0 42px;
+      border: 1px solid var(--line); border-radius: 999px; outline: none;
+      background: #fffefa; color: var(--ink);
+    }
+    .search-wrap input:focus { border-color: #9b7951; box-shadow: 0 0 0 3px rgba(155,121,81,.12); }
+    .search-icon { position: absolute; top: 12px; left: 15px; width: 18px; height: 18px; color: #7c6b58; pointer-events: none; }
+    .collection-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+      max-width: 1600px; margin: 0 auto;
+    }
+    .collection-card {
+      display: grid; grid-template-columns: minmax(105px, 42%) minmax(0, 1fr);
+      gap: 17px; min-height: 194px; padding: 10px;
+      cursor: pointer;
+      border: 1px solid rgba(77,55,29,.07); border-radius: 15px;
+      background: rgba(255,255,255,.83); box-shadow: var(--shadow);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .collection-card:hover, .collection-card:focus-visible { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(48,31,14,.12); border-color: rgba(104,66,31,.2); outline: none; }
+    .collection-card:focus-visible { outline: 3px solid rgba(104,66,31,.45); outline-offset: 3px; }
+    .card-art {
+      min-height: 172px; overflow: hidden; border-radius: 10px; background: #e8dfd0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-art img { width: 100%; height: 100%; min-height: 172px; object-fit: cover; display: block; }
+    .art-placeholder {
+      width: 100%; height: 100%; min-height: 172px; display: grid; place-items: center;
+      color: var(--brown); background: linear-gradient(145deg, #f1e7d4, #c7ad89);
+    }
+    .art-placeholder svg { width: 48px; height: 48px; opacity: .86; }
+    .card-body { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 7px 5px 0; }
+    .card-body h3 { margin: 0; font-size: clamp(1rem, 1.25vw, 1.25rem); line-height: 1.2; letter-spacing: -.5px; }
+    .card-body p { margin: 9px 0 12px; color: var(--muted); font-size: .88rem; line-height: 1.45; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: auto; gap: 8px; }
+    .resource-count { color: #8b7c69; font-size: .75rem; }
+    .card-link {
+      display: inline-grid; place-items: center; width: 41px; height: 41px; flex: 0 0 auto;
+      border: 0; border-radius: 50%; background: #f7efdf; color: var(--brown); cursor: pointer;
+      transition: color .2s, background .2s, transform .2s;
+    }
+    .card-link:hover { color: white; background: var(--brown); transform: translateX(2px); }
+    .card-link svg { width: 19px; height: 19px; }
+    .book-results { max-width: 1600px; margin: 0 auto 28px; }
+    .book-results h2 { margin: 0 0 12px; font-size: 1.1rem; letter-spacing: -.3px; }
+    .book-results ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .book-result {
+      display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px;
+      border: 1px solid rgba(77,55,29,.07); border-radius: 13px; background: rgba(255,255,255,.83);
+      box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+    }
+    .book-result:hover, .book-result:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(48,31,14,.12); outline: none; }
+    .book-result strong { font-size: .98rem; line-height: 1.3; overflow-wrap: anywhere; }
+    .book-result span { color: var(--muted); font-size: .85rem; }
+    .book-result .pill { align-self: flex-start; margin-top: 6px; padding: 4px 9px; border-radius: 999px; background: #f4ead8; color: #795a35; font-size: .69rem; font-weight: 800; }
+    @media (max-width: 1200px) { .book-results ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 700px) { .book-results ul { grid-template-columns: 1fr; } }
+    .empty-state { display: none; max-width: 1600px; margin: 28px auto; color: var(--muted); text-align: center; }
+    footer {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 22px clamp(20px, 3vw, 45px); background: #f4eddf; color: #6b5b48; font-size: .85rem;
+    }
+    footer strong { color: var(--brown); }
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 10; display: none; place-items: center;
+      padding: 20px; background: rgba(22,15,8,.58); backdrop-filter: blur(5px);
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal {
+      width: min(100%, 480px); padding: 28px; border-radius: 20px;
+      background: var(--cream); box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    }
+    .modal-top { display: flex; align-items: start; justify-content: space-between; gap: 18px; }
+    .modal h2 { margin: 0; color: var(--brown); font-size: 1.6rem; }
+    .modal p { color: var(--muted); line-height: 1.6; }
+    .modal-close { border: 0; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; background: #f0e5d2; color: var(--brown); font-size: 1.2rem; }
+    .modal-note { padding: 12px 14px; border-radius: 10px; background: #f3ead9; color: #6b5032; font-size: .9rem; }
+    @media (max-width: 1200px) {
+      .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-panel { width: 72%; padding-left: 6vw; }
+      .hero-photo { left: 28%; width: 72%; }
+    }
+    @media (max-width: 700px) {
+      .hero { min-height: 0; background: #2b190c; }
+      .hero-photo { inset: 0; width: 100%; height: 100%; object-position: 62% center; }
+      .hero::before {
+        background: linear-gradient(90deg, rgba(255,253,245,.97) 0%, rgba(255,253,245,.92) 58%, rgba(255,253,245,.28) 100%);
+      }
+      .hero-panel { width: 100%; min-height: 0; padding: 22px 22px 30px; }
+      .brand { font-size: 20px; }
+      .brand-mark { width: 36px; height: 34px; }
+      .hero-copy { margin-top: 28px; max-width: 420px; }
+      h1 { font-size: clamp(1.9rem, 7.5vw, 2.55rem); letter-spacing: -1.1px; }
+      .hero-copy p { margin-top: 12px; font-size: .95rem; line-height: 1.55; }
+      .hero-actions { margin-top: 16px; }
+      .collection-bar { min-height: 58px; }
+      main { padding: 22px 15px 35px; }
+      .section-intro { align-items: stretch; flex-direction: column; }
+      .search-wrap { width: 100%; }
+      .collection-grid { grid-template-columns: 1fr; gap: 12px; }
+      .collection-card { grid-template-columns: 124px minmax(0, 1fr); min-height: 166px; gap: 14px; }
+      .card-art, .card-art img, .art-placeholder { min-height: 144px; }
+      .card-body { padding-top: 8px; }
+      .card-body h3 { font-size: 1.05rem; }
+      .card-body p { font-size: .84rem; margin: 7px 0 9px; }
+      .resource-count { display: none; }
+    }
+	
+
+    /* ---------- Library stats: bookshelf of category "spines" ---------- */
+    .stats {
+      position: relative; overflow: hidden; isolation: isolate; width: 100%; max-width: none; margin: 0 0 30px;
+      padding: 16px clamp(14px, 2vw, 26px) 0; border-radius: 20px; color: #fff7e9;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,214,150,.20), transparent 55%),
+        linear-gradient(180deg, #4a2d16 0%, #2b190c 100%);
+      box-shadow: 0 14px 34px rgba(43,25,12,.24);
+    }
+    .stats::before { /* wall paneling lines */
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .55;
+      background-image: repeating-linear-gradient(90deg, rgba(255,235,200,.045) 0 1px, transparent 1px 46px);
+    }
+    .stats-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .stats-head h2 { margin: 0; font-size: .95rem; letter-spacing: -.3px; color: #fff7e9; }
+    .stats-head p { margin: 2px 0 0; font-size: .72rem; color: rgba(255,240,215,.6); }
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,240,215,.16);
+      font-size: .72rem; font-weight: 600; color: rgba(255,240,215,.85); white-space: nowrap;
+    }
+    .live-pill i { width: 7px; height: 7px; border-radius: 50%; background: #7bd389; box-shadow: 0 0 0 3px rgba(123,211,137,.2); }
+
+    .shelf-scroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; padding-top: 22px; margin: 0 calc(-1 * clamp(14px, 2vw, 26px)); padding-inline: clamp(14px, 2vw, 26px); }
+    .shelf-scroll::-webkit-scrollbar { display: none; }
+    .shelf-inner { width: 100%; min-width: 640px; }
+    .shelf-row { display: flex; align-items: flex-end; justify-content: stretch; gap: 6px; padding: 0 4px; }
+    .shelf-board {
+      height: 14px; margin: 0 -10px; border-radius: 3px 3px 0 0;
+      background: linear-gradient(180deg, #c18c4f 0%, #8a5a2c 45%, #5d3a1b 100%);
+      box-shadow: 0 -2px 0 rgba(255,225,170,.25) inset, 0 8px 14px rgba(0,0,0,.35);
+    }
+
+    /* total plaque */
+    .plaque {
+      position: relative; display: flex; flex-direction: column; justify-content: center; align-self: stretch;
+      flex: 0 0 auto; min-width: 132px; margin: 0 14px 0 0; padding: 12px 14px; border-radius: 12px 12px 4px 4px;
+      color: #2b190c; background: linear-gradient(145deg, #f0cf96, #c99552);
+      box-shadow: 0 6px 14px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.35);
+    }
+    .plaque .stat-number { font-size: 1.9rem; letter-spacing: -1px; color: #2b190c; }
+    .plaque .stat-label { margin-top: 4px; font-size: .7rem; font-weight: 700; color: rgba(43,25,12,.8); }
+    .plaque svg { width: 18px; height: 18px; margin-bottom: 6px; }
+
+    .plaque-btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex; align-items: center; justify-content: center; gap: 5px; margin-top: 9px;
+      padding: 6px 10px; border-radius: 999px; background: #2b190c; color: #fff4dc;
+      font-size: .68rem; font-weight: 800; white-space: nowrap; text-decoration: none;
+      box-shadow: 0 0 8px rgba(230, 0, 35, .5), 0 0 18px rgba(230, 0, 35, .35);
+      animation: plaqueBtnPulse 1.2s infinite;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .plaque-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: skewX(-20deg);
+      animation: plaqueBtnShine 1.3s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes plaqueBtnPulse {
+      0%, 100% {
+        box-shadow: 0 0 8px rgba(230, 0, 35, .5), 0 0 18px rgba(230, 0, 35, .35);
+      }
+      50% {
+        box-shadow: 0 0 12px rgba(230, 0, 35, .8), 0 0 28px rgba(230, 0, 35, .6);
+      }
+    }
+
+    @keyframes plaqueBtnShine {
+      0% { left: -100%; }
+      45%, 100% { left: 150%; }
+    }
+
+    .plaque-btn:hover, .plaque-btn:focus-visible { background: #4a2d16; transform: translateY(-1px); outline: none; }
+    .plaque-btn:focus-visible { box-shadow: 0 0 0 3px rgba(43,25,12,.35); }
+    .plaque-btn span { transition: transform .2s ease; }
+    .plaque-btn:hover span { transform: translateX(3px); }
+
+    /* book spines */
+    .spine {
+      position: relative; flex: 1 1 0; min-width: 44px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      height: var(--h, 120px); padding: 9px 0 10px; border-radius: 4px 4px 1px 1px;
+      color: #fff7e9; cursor: default;
+      background: linear-gradient(90deg, rgba(0,0,0,.28), rgba(255,255,255,.12) 18%, rgba(255,255,255,0) 40%, rgba(0,0,0,.22)), linear-gradient(180deg, var(--c1), var(--c2));
+      box-shadow: 0 3px 8px rgba(0,0,0,.35);
+      opacity: 0; transform: translateY(-26px);
+      transition: opacity .5s ease, transform .6s cubic-bezier(.3,1.4,.5,1);
+      transition-delay: calc(var(--i, 0) * 85ms);
+    }
+    .spine::before, .spine::after { /* gold bands */
+      content: ""; position: absolute; left: 0; right: 0; height: 2px; background: rgba(243,217,168,.7);
+    }
+    .spine::before { top: 5px; } .spine::after { bottom: 6px; }
+    .stats.in-view .spine, .stats.in-view .plaque, .stats.in-view .ghost { opacity: 1; transform: none; }
+    .stats.in-view .spine:hover { transform: translateY(-9px); transition-delay: 0s; transition-duration: .22s; }
+    .spine .stat-number { font-size: .98rem; font-weight: 800; line-height: 1; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .spine .stat-label {
+      writing-mode: vertical-rl; transform: rotate(180deg); flex: 1; min-height: 0; max-height: 100%;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      font-size: .66rem; font-weight: 700; letter-spacing: .3px; color: rgba(255,247,233,.92);
+    }
+
+    /* "being added soon" empty slot */
+    .ghost {
+      position: relative; flex: 1 1 0; min-width: 44px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      height: var(--h, 120px); padding: 9px 0 10px; overflow: hidden; border-radius: 4px 4px 1px 1px;
+      color: #f3d9a8; border: 1.5px dashed rgba(255,225,170,.5); background: rgba(255,248,232,.04);
+      margin-left: 8px; opacity: 0; transform: translateY(-26px);
+      transition: opacity .5s ease, transform .6s cubic-bezier(.3,1.4,.5,1); transition-delay: calc(var(--i, 0) * 85ms);
+    }
+    .ghost .fill {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 0; z-index: 0;
+      background: repeating-linear-gradient(135deg, rgba(243,217,168,.30) 0 6px, rgba(243,217,168,.12) 6px 12px);
+      transition: height 1.6s cubic-bezier(.2,.8,.2,1) .4s;
+    }
+    .stats.in-view .ghost .fill { height: var(--fill, 0%); }
+    .ghost > *:not(.fill) { position: relative; z-index: 1; }
+    .ghost .stat-number { font-size: .98rem; font-weight: 800; line-height: 1; margin-top: 4px; color: #fff; }
+    .ghost .stat-label { writing-mode: vertical-rl; transform: rotate(180deg); flex: 1; min-height: 0; overflow: hidden; white-space: nowrap; font-size: .66rem; font-weight: 700; color: rgba(255,240,215,.9); }
+    .stats.in-view .ghost:hover { transform: translateY(-9px); transition-delay: 0s; transition-duration: .22s; }
+
+    /* count badge on each collection card */
+    .card-art { position: relative; }
+    .count-badge {
+      position: absolute; left: 8px; bottom: 8px; display: inline-flex; align-items: baseline; gap: 4px;
+      padding: 5px 10px; border-radius: 999px; background: rgba(59,36,17,.88); color: #fff7e9;
+      backdrop-filter: blur(4px); font-size: .72rem; font-weight: 600; box-shadow: 0 3px 10px rgba(0,0,0,.2);
+    }
+    .count-badge b { font-size: .95rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+    @media (max-width: 1200px) {
+      .stats { padding-inline: 14px; }
+      .shelf-scroll { margin: 0 -14px; padding-inline: 14px; }
+      .shelf-row { gap: 4px; }
+      .plaque { min-width: 122px; margin-right: 10px; padding: 10px 12px; }
+      .plaque .stat-number { font-size: 1.6rem; }
+      .spine, .ghost { min-width: 38px; }
+      .spine .stat-number, .ghost .stat-number { font-size: .88rem; }
+      .spine .stat-label, .ghost .stat-label { font-size: .6rem; }
+    }
+    @media (max-width: 700px) {
+      .live-pill { display: none; }
+      .shelf-row { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .spine, .ghost, .plaque { opacity: 1 !important; transform: none !important; }
+      .ghost .fill { transition: none; }
+    }
+
+	.glow-link {
+			color: black;
+            text-decoration: none;
+            transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out; 
+        }
+
+        /* The magic happens when hovering over the link */
+    .glow-link:hover {
+            color: #45B591; /* Changes text color to bright brown */
+        }
+	
+	
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="home">
+    <img class="hero-photo" src="digital-library-concept.png" alt="Warm, book-filled library interior" />
+    <div class="hero-panel">
+      <a class="brand" href="#home" aria-label="Digital Library home">
+        <svg class="brand-mark" viewBox="0 0 48 44" aria-hidden="true">
+          <path d="M23 8C16 3 8 3 2 6v31c7-3 14-2 21 3V8Z" fill="currentColor"/>
+          <path d="M25 8c7-5 15-5 21-2v31c-7-3-14-2-21 3V8Z" fill="currentColor"/>
+          <path d="M24 9v30" stroke="#fffdf5" stroke-width="2"/>
+        </svg>
+        <span> EEE <br/> Digital Library</span>
+      </a>
+      <div class="hero-copy">
+        <h1>Discover a World of Knowledge</h1>
+        <p>Explore books, and digital resources to inspire your mind and fuel your curiosity.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="../contact.html">Donate Books <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="secondary-link" href="#about">About the library</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+			<!--
+				  <div class="collection-bar" id="collections">
+					<svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+					  <path d="M8 3 27 8 19 29 1 23 8 3Z" fill="#fffaf0" transform="rotate(-8 16 16)"/>
+					  <path d="m10 7 14 4M6 21l13 4" stroke="#8b6742" stroke-width="1.5"/>
+					</svg>
+					<span>Discover Our Collection</span>
+				  </div>
+			-->
+  <main>
+    <section class="stats" id="libraryStats" aria-label="Library at a glance">
+      <div class="stats-head">
+        <div><h2>Library at a glance</h2><p>Books stored in each category</p></div>
+        <span class="live-pill"><i></i> Updates automatically</span>
+      </div>
+      <div id="statsGrid"></div>
+    </section>
+
+    <div class="section-intro">
+      <div>
+        <h2>Find your next book to read</h2>
+        <p>Explore curated resources for engineering, technology, and beyond.</p>
+      </div>
+      <label class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/>
+        </svg>
+        <input id="collectionSearch" type="search" placeholder="Search collections and books..." aria-label="Search collections and all books" />
+      </label>
+    </div>
+
+    <section class="book-results" id="bookResults" aria-live="polite" hidden>
+      <h2 id="bookResultsTitle"></h2>
+      <ul id="bookResultsList"></ul>
+    </section>
+
+    <section class="collection-grid" aria-label="Library collections">
+      <article class="collection-card" data-search="electrical power systems circuits electromagnetics" tabindex="0" role="button" aria-label="Open electrical collection">
+        <div class="card-art">
+          <img src="electrical-book-icon.jpg" alt="Electricity transmission towers" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Electrical</h3>
+          <p>Explore power systems, circuits, electromagnetics and more.</p>
+          <div class="card-bottom"><span class="resource-count">Power & circuits</span><button class="card-link" data-category="Electrical" aria-label="Explore Electrical collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="electronic microelectronics analog digital design semiconductor" tabindex="0" role="button" aria-label="Open electronic collection">
+        <div class="card-art">
+          <img src="electronics-book-icon.jpg" alt="Electronic circuit board" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Electronics</h3>
+          <p>Discover electronics, microelectronics, analog and digital design.</p>
+          <div class="card-bottom"><span class="resource-count">Devices & circuits</span><button class="card-link" data-category="Electronics" aria-label="Explore Electronic collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="communication networks wireless radio frequency rf" tabindex="0" role="button" aria-label="Open communication collection">
+        <div class="card-art">
+          <img src="communication-book-icon.png" alt="Communications antenna equipment" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Communication</h3>
+          <p>Explore communication systems, networks, wireless and RF.</p>
+          <div class="card-bottom"><span class="resource-count">Networks & RF</span><button class="card-link" data-category="Communication" aria-label="Explore Communication collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="power generation transmission renewable energy solar wind" tabindex="0" role="button" aria-label="Open power collection">
+        <div class="card-art">
+          <img src="power-book-icon.jpg" alt="Wind turbines producing renewable energy" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Power</h3>
+          <p>Access resources on power generation, transmission and renewable energy.</p>
+          <div class="card-bottom"><span class="resource-count">Energy systems</span><button class="card-link" data-category="Power" aria-label="Explore Power collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="machine control systems mechatronics robotics" tabindex="0" role="button" aria-label="Open machine collection">
+        <div class="card-art">
+          <img src="machine-book-icon.png" alt="Industrial machinery and automation" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Machine</h3>
+          <p>Explore machines, control systems, mechatronics and robotics.</p>
+          <div class="card-bottom"><span class="resource-count">Machines & control</span><button class="card-link" data-category="Machine" aria-label="Explore Machine collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="signal system signal processing systems theory data analysis" tabindex="0" role="button" aria-label="Open signal collection">
+        <div class="card-art">
+          <img src="signal_system-book-icon.png" alt="Abstract digital signal visualization" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Signal &amp; System</h3>
+          <p>Study signal processing, systems theory and data analysis.</p>
+          <div class="card-bottom"><span class="resource-count">Signals & analysis</span><button class="card-link" data-category="Signal & System" aria-label="Explore Signal and System collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="programming languages algorithms software development code" tabindex="0" role="button" aria-label="Open programming collection">
+        <div class="card-art">
+          <img src="programming-book-icon.jpg" alt="Programming code on a computer screen" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Programming</h3>
+          <p>Learn programming languages, algorithms and software development.</p>
+          <div class="card-bottom"><span class="resource-count">Code & algorithms</span><button class="card-link" data-category="Programming" aria-label="Explore Programming collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="collection-card" data-search="core subjects mathematics physics calculus engineering mathematics" tabindex="0" role="button" aria-label="Open core collection">
+        <div class="card-art">
+          <img src="science-book-icon.png" alt="Books arranged on a library shelf" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Pure Science Subjects</h3>
+          <p>Access mathematics, physics and other essential subjects.</p>
+          <div class="card-bottom"><span class="resource-count">Maths & sciences</span><button class="card-link" data-category="Core Subjects" aria-label="Explore Core Subjects collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </article>
+    </section>
+    <p class="empty-state" id="emptyState">No collections or books match your search. Try another keyword.</p>
+  </main>
+
+  <footer id="about">
+    <span><strong>Digital Library</strong> — A world of knowledge, one collection at a time for EEE students.</span>
+    <span>Ⓒ Developed by <a href="../../index.html" class="glow-link"> Sayed Shifat Ahmed</a>. <a href="../../index.html">See more...</a></span>
+  </footer>
+
+
+  <script src="books-render.js"></script>
+  <script>
+    const searchInput = document.getElementById('collectionSearch');
+    const cards = [...document.querySelectorAll('.collection-card')];
+    const emptyState = document.getElementById('emptyState');
+    const bookResults = document.getElementById('bookResults');
+    const bookResultsTitle = document.getElementById('bookResultsTitle');
+    const bookResultsList = document.getElementById('bookResultsList');
+
+    function bookResultItem(book) {
+      const realLink = validDriveUrl(book.driveUrl) && !book.driveUrl.includes('/drive/my-drive');
+      const a = document.createElement('a');
+      a.className = 'book-result';
+      if (realLink) {
+        a.href = book.driveUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      } else {
+        // No Drive link yet: jump to the book on its collection page.
+        a.href = `books.html?category=${encodeURIComponent(book.category)}&q=${encodeURIComponent(book.title)}`;
+      }
+      a.innerHTML = `<strong>${safeText(book.title)}</strong>
+        <span>By ${safeText(book.author)}</span>
+        <span class="pill">${safeText(book.category)}</span>`;
+      const li = document.createElement('li');
+      li.appendChild(a);
+      return li;
+    }
+
+    // Searches collections on this page AND every book in the library (books.js).
+    searchInput.addEventListener('input', () => {
+      const raw = searchInput.value.trim();
+      const query = raw.toLowerCase();
+      let visibleCards = 0;
+      cards.forEach(card => {
+        const text = (card.innerText + ' ' + card.dataset.search).toLowerCase();
+        const matches = text.includes(query);
+        card.hidden = !matches;
+        if (matches) visibleCards++;
+      });
+
+      const books = raw ? searchBooks(raw) : [];
+      bookResultsList.replaceChildren(...books.map(bookResultItem));
+      bookResultsTitle.textContent = `${books.length} ${books.length === 1 ? 'book' : 'books'} found across the library`;
+      bookResults.hidden = books.length === 0;
+
+      emptyState.style.display = (visibleCards || books.length) ? 'none' : 'block';
+    });
+
+    function openCollection(category) {
+      window.location.href = `books.html?category=${encodeURIComponent(category)}`;
+    }
+
+    // The whole card is clickable, not just its arrow. Enter and Space work too.
+    cards.forEach(card => {
+      const category = card.querySelector('h3').textContent.trim();
+      card.addEventListener('click', () => openCollection(category));
+      card.addEventListener('keydown', event => {
+        if (event.target !== card) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openCollection(category);
+        }
+      });
+    });
+
+    // Keep the arrow buttons functional without triggering a duplicate card click.
+    document.querySelectorAll('[data-category]').forEach(button => {
+      button.addEventListener('click', event => {
+        event.stopPropagation();
+        openCollection(button.dataset.category);
+      });
+    });
+
+    /* ---------- Animated library stats ---------- */
+    (function initLibraryStats() {
+      if (typeof BOOKS === 'undefined') { // books data not loaded: still show the cards
+        console.warn('BOOKS not found. Make sure books-render.js is in the same folder.');
+        document.getElementById('libraryStats').classList.add('in-view');
+        return;
+      }
+
+      const norm = v => String(v ?? '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+      const isReady = b => validDriveUrl(b.driveUrl) && !b.driveUrl.includes('/drive/my-drive');
+
+      const total = BOOKS.length;
+      const pending = BOOKS.filter(b => !isReady(b)).length;
+
+      // Count books per category (keeps the order they appear in the data)
+      const catMap = new Map();
+      BOOKS.forEach(b => catMap.set(b.category, (catMap.get(b.category) || 0) + 1));
+
+      const ICONS = {
+        book: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16M8 7h8M8 10h8"/>',
+        bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+        chip: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+        signal: '<path d="M2 12h3l3-8 4 16 3-8h7"/>',
+        antenna: '<path d="M12 12v9M8 21h8"/><circle cx="12" cy="10" r="2"/><path d="M7.5 5.5a6.5 6.5 0 0 0 0 9M16.5 5.5a6.5 6.5 0 0 1 0 9"/>',
+        gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+        code: '<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+        atom: '<circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
+        clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
+      };
+      function iconFor(name) {
+        const n = norm(name);
+        if (n.includes('power')) return ICONS.bolt;
+        if (n.includes('electronic')) return ICONS.chip;
+        if (n.includes('electrical')) return ICONS.bolt;
+        if (n.includes('signal')) return ICONS.signal;
+        if (n.includes('communication')) return ICONS.antenna;
+        if (n.includes('machine')) return ICONS.gear;
+        if (n.includes('programming')) return ICONS.code;
+        if (n.includes('science')) return ICONS.atom;
+        return ICONS.book;
+      }
+
+      const tiles = [
+        { label: 'Total books', value: total, suffix: '', icon: ICONS.book, fill: 100 },
+        ...[...catMap].map(([name, count]) => ({
+          label: name, sub: 'books stored', value: count, suffix: '', icon: iconFor(name),
+          fill: total ? count / total * 100 : 0
+        })),
+        { label: 'Being added soon', value: pending, suffix: '', icon: ICONS.clock, fill: total ? pending / total * 100 : 0 }
+      ];
+
+      const statsEl = document.getElementById('libraryStats');
+      const PALETTE = [
+        ['#8a4b2a', '#5a2d16'], ['#2f5d50', '#1c3b32'], ['#7b2d3b', '#4d1824'], ['#3d4f7a', '#243050'],
+        ['#9a7a2e', '#6a501a'], ['#5b4a8a', '#382d5a'], ['#4f6b34', '#2f4220'], ['#8a5a2c', '#58361a'], ['#2f6a78', '#1b414b']
+      ];
+      const maxCount = Math.max(...[...catMap.values()], 1);
+      const heightOf = n => Math.round(112 + (n / maxCount) * 56);
+
+      const totalTile = tiles[0], pendingTile = tiles[tiles.length - 1], catTiles = tiles.slice(1, -1);
+
+      const plaque = `
+        <div class="plaque" style="--i:0" title="Total books">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${totalTile.icon}</svg>
+          <span class="stat-number" data-to="${totalTile.value}" data-suffix="+">0</span>
+          <span class="stat-label">Total books</span>
+          <a class="plaque-btn" href="booklist.html">View Booklist <span aria-hidden="true">&rarr;</span></a>
+        </div>`;
+
+      const spines = catTiles.map((t, i) => {
+        const [c1, c2] = PALETTE[i % PALETTE.length];
+        return `
+        <div class="spine" style="--i:${i + 1};--h:${heightOf(t.value)}px;--c1:${c1};--c2:${c2}" title="${safeText(t.label)}: ${t.value} ${t.value === 1 ? 'book' : 'books'}">
+          <span class="stat-number" data-to="${t.value}">0</span>
+          <span class="stat-label">${safeText(t.label)}</span>
+        </div>`;
+      }).join('');
+
+      const ghost = `
+        <div class="ghost" style="--i:${catTiles.length + 1};--h:${heightOf(maxCount * 0.6)}px;--fill:${pendingTile.fill.toFixed(1)}%" title="Being added soon: ${pendingTile.value} books">
+          <div class="fill"></div>
+          <span class="stat-number" data-to="${pendingTile.value}">0</span>
+          <span class="stat-label">Being added soon</span>
+        </div>`;
+
+      document.getElementById('statsGrid').innerHTML = `
+        <div class="shelf-scroll"><div class="shelf-inner">
+          <div class="shelf-row">${plaque}${spines}${ghost}</div>
+          <div class="shelf-board"></div>
+        </div></div>`;
+
+      // Per-collection counts (matches card title to data category, e.g. "Signal & System" -> "Signal & Systems")
+      const badgeTargets = [];
+      cards.forEach(card => {
+        const t = norm(card.querySelector('h3').textContent);
+        const n = BOOKS.filter(b => {
+          const c = norm(b.category);
+          return c === t || c.startsWith(t) || t.startsWith(c);
+        }).length;
+        const badge = document.createElement('span');
+        badge.className = 'count-badge';
+        badge.innerHTML = '<b>0</b> books';
+        card.querySelector('.card-art').appendChild(badge);
+        badgeTargets.push({ el: badge.querySelector('b'), to: n, card, badge });
+      });
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const easeOut = t => 1 - Math.pow(2, -10 * t); // easeOutExpo
+
+      function countUp(el, to, duration, suffix = '') {
+        if (reduced || to === 0) { el.textContent = to + suffix; return; }
+        const start = performance.now();
+        (function frame(now) {
+          const p = Math.min((now - start) / duration, 1);
+          el.textContent = Math.round(easeOut(p) * to) + suffix;
+          if (p < 1) requestAnimationFrame(frame);
+          else el.textContent = to + suffix;
+        })(start);
+      }
+
+      function run() {
+        statsEl.classList.add('in-view');
+        statsEl.querySelectorAll('.stat-number').forEach((el, i) => {
+          setTimeout(() => countUp(el, +el.dataset.to, 1800, el.dataset.suffix || ''), Math.min(i, 12) * 85);
+        });
+      }
+
+      let statsDone = false;
+      new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting && !statsDone) { statsDone = true; obs.disconnect(); run(); }
+      }, { threshold: .25 }).observe(statsEl);
+
+      // Card badges count up when each card scrolls into view
+      const cardObs = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const t = badgeTargets.find(x => x.card === e.target);
+          obs.unobserve(e.target);
+          if (t) countUp(t.el, t.to, 1400);
+        });
+      }, { threshold: .35 });
+      badgeTargets.forEach(t => cardObs.observe(t.card));
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSA-Attended</title>
+    <script>
+    try { if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark' } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="attended.css" />
+</head>
+
+<body>
+    <div class="page">
+        <div id="site-header"></div>
+
+        <main class="panels">
+            <section class="container section att" id="attended">
+
+                <header class="att-hero">
+                    <div class="att-hero-text">
+                        <p class="eyebrow mono">ATTENDED</p>
+                        <h2 class="serif">Conferences, Seminars <em>&amp;</em> Training</h2>
+                        <p class="intro">A record of the conferences, seminars and training programmes I have taken part in &mdash; and the places they took me.</p>
+                    </div>
+                    <div class="att-waves" aria-hidden="true"></div>
+                </header>
+
+                <div class="att-stats" id="attStats"></div>
+
+                <div class="att-filters" id="attFilters" role="group" aria-label="Filter by type"></div>
+
+                <div class="att-timeline" id="attList"></div>
+
+                <section class="att-places" id="attPlaces" hidden>
+                    <h3 class="serif">Where I have been</h3>
+                    <div class="att-place-list" id="attPlaceList"></div>
+                </section>
+
+                <section class="att-coord" id="attCoord" hidden></section>
+
+            </section>
+        </main>
+
+        <div id="site-footer"></div>
+    </div>
+    <script src="attended.js"></script>
+    <script src="attended-render.js"></script>
+    <script src="../layout.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>
