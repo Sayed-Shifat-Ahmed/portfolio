@@ -88,7 +88,6 @@
         <li><a href="https://scholar.google.com/citations?user=IfLCVxwAAAAJ&hl" aria-label="Google Scholar" title="Google Scholar">🎓</a></li>
         <li><a href="https://www.researchgate.net/profile/Sayed-Shifat-Ahmed" aria-label="ResearchGate" title="ResearchGate">RG</a></li>
         <li><a href="https://orcid.org/0009-0007-9050-6951" aria-label="ORCID" title="ORCID">iD</a></li>
-        <li><a href="https://github.com/Sayed-Shifat-Ahmed" aria-label="GitHub" title="GitHub">◉</a></li>
         <li><a href="https://www.linkedin.com/in/sayed-shifat-ahmed-02025a1a7" aria-label="LinkedIn" title="LinkedIn">in</a></li>
 		<li><a href="https://www.facebook.com/esoteric.root" aria-label="Facebook" title="Facebook">ⓕ</a></li>
 		<li><a href="http://wa.me/+8801790443944" aria-label="Whatsapp" title="Whatsapp">✆</a></li> 
