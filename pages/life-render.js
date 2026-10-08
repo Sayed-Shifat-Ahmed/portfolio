@@ -42,13 +42,6 @@
         alt: 'Acoustic guitar close-up'
       }
     ],
-
-    beliefsTitle: 'What I believe',
-    beliefs: [
-      { icon: '◎', title: 'Open Science',        text: 'All code and data from my lab are released publicly. Science cannot advance behind paywalls.' },
-      { icon: '⌗', title: 'Accessibility First', text: 'AI systems should work for people in Dhaka as well as they do for people in Seattle.' },
-      { icon: '△', title: 'Student-Centered',    text: "A professor's most durable publication is a well-trained student with the courage to ask hard questions." }
-    ]
   };
 
   /* ------------------- rendering (no need to edit below) ------------------- */
