@@ -370,7 +370,11 @@ a.btn { display: inline-block; }
 @media (min-width: 900px) { .gallery-grid { columns: 3; } }
 .g-item { break-inside: avoid; margin: 0 0 1rem; position: relative; overflow: hidden; cursor: zoom-in; background: linear-gradient(135deg, var(--border), var(--cream)); min-height: 160px; }
 .g-item.hidden { display: none; }
+<<<<<<< HEAD
 .g-item img { width: 100%; height: auto; transition: transform var(--tr, .5s), filter var(--tr, .5s); filter: grayscale(25%); }
+=======
+.g-item img { width: 100%; height: auto; transition: transform .5s, filter .5s; filter: grayscale(25%); }
+>>>>>>> d0321cd17e587e0005d80430856daad3070791a7
 .g-item:hover img, .g-item:focus img { transform: scale(1.05); filter: none; }
 .g-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem .9rem .7rem; color: #fff; font-size: .85rem; background: linear-gradient(transparent, rgba(0,0,0,.65)); opacity: 0; transition: opacity .3s; }
 .g-item:hover figcaption, .g-item:focus figcaption { opacity: 1; }
@@ -718,6 +722,7 @@ a.btn { display: inline-block; }
 .project.expanded .project-extra { display: block; }
 .read-more { margin-top: auto; background: none; border: 0; padding: 0; cursor: pointer; color: var(--accent); letter-spacing: .06em; }
 .read-more:hover { color: var(--accent-light); text-decoration: underline dotted; }
+<<<<<<< HEAD
 
 /* Life & Events gallery styles. Uses the colours from style.css, so dark mode works automatically. */
 .g-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: -1rem 0 3.5rem; }
@@ -875,3 +880,5 @@ a.btn { display: inline-block; }
 .g-cover .g-fnav { z-index: 7; }
 @media (max-width: 600px) { .g-cf { width: 70%; } .g-cf[data-pos="2"], .g-cf[data-pos="-2"] { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .g-cf { transition: none; } }
+=======
+>>>>>>> d0321cd17e587e0005d80430856daad3070791a7
