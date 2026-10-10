@@ -36,8 +36,10 @@
                 id: 'deans-award-2024',
                 title: "Dean's Award 2024",
                 layout: 'slideshowfull',
-                every: 1500, /* ms between automatic photo changes */
-                speed: 700, /* ms the transition / animation takes (smaller = snappier) */
+                every: 1500,
+                /* ms between automatic photo changes */
+                speed: 700,
+                /* ms the transition / animation takes (smaller = snappier) */
                 purpose: "Recognition from the Dean's office for academic and professional contribution. These photos mark the ceremony and the people who made it possible.",
                 photos: [
                     { src: '../images/gallery-image/award-receiving.JPG', title: 'Receiving the award', text: 'Accepting the Dean\'s Award on stage at the ceremony.' },
@@ -51,7 +53,8 @@
                 id: 'best-presentation-2026',
                 title: 'Best Presentation Award 2026',
                 layout: 'grid',
-                speed: 500, /* ms the transition / animation takes (smaller = snappier) */
+                speed: 500,
+                /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'Awarded for a clear and well-delivered research presentation in technical sessional at 2026 IEEE 2nd International' +
                     ' Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN). This section records that day, from the talk to the trophy.',
                 photos: [
@@ -64,7 +67,8 @@
                 id: 'international-conferences',
                 title: 'Moments of International Conferences',
                 layout: 'grid',
-                speed: 500, /* ms the transition / animation takes (smaller = snappier) */
+                speed: 500,
+                /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'Presenting and networking at international conferences: meeting researchers, exchanging ideas and seeing how others approach similar problems.',
                 photos: [
                     { src: "../images/gallery-image/qpain-25-1.jpg", title: 'QPAIN-2025 Presentation' },
@@ -97,8 +101,10 @@
                 id: 'Moments at RTM-AKTU',
                 title: 'Conference / Seminar / Workshop',
                 layout: 'slideshowleft',
-                every: 1500, /* ms between automatic photo changes */
-                speed: 200, /* ms the transition / animation takes (smaller = snappier) */
+                every: 1500,
+                /* ms between automatic photo changes */
+                speed: 200,
+                /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'Local and national academic events attended or organised. They are where skills sharpen and new collaborations begin.',
                 photos: [
                     { src: '../images/certificate-image/WIECON-22.png', title: 'WIECON-2022' },
@@ -131,8 +137,10 @@
                 id: 'Moments at RTM-AKTU',
                 title: 'Moments at RTM-AKTU',
                 layout: 'row',
-                every: 4000, /* ms each photo takes to pass by (smaller = faster train) */
-                rowHeight: 300, /* height of the photos in px (width follows each photo's shape) */
+                every: 4000,
+                /* ms each photo takes to pass by (smaller = faster train) */
+                rowHeight: 300,
+                /* height of the photos in px (width follows each photo's shape) */
                 purpose: 'Everyday life at RTM Al-Kabir Technical University: classrooms, labs, events and colleagues. Tap or hover a card to read its story.',
 
                 photos: [
@@ -194,25 +202,99 @@
 
             {
                 id: 'university-moments',
-                title: 'PUST Precious Moments',
+                title: 'University Precious Moments',
                 layout: 'coverflow',
-                every: 1500, /* ms between automatic photo changes */
-                speed: 600, /* ms the transition / animation takes (smaller = snappier) */
+                every: 1500,
+                /* ms between automatic photo changes */
+                speed: 600,
+                /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'Memories from my own student years: classmates, teachers, late-night study sessions and the convocation.',
                 photos: [
-                    { src: 'university-1.jpg', title: 'First year', text: 'Early days on campus, full of curiosity.' },
-                    { src: 'university-2.jpg', title: 'Classmates', text: 'The batch that shared every deadline.' },
-                    { src: 'university-3.jpg', title: 'Project day', text: 'Presenting the final-year project.' },
-                    { src: 'university-4.jpg', title: 'Convocation', text: 'Graduation day with family.' }
+                    /*   { src: 'university-1.jpg', title: 'First year', text: 'Early days on campus, full of curiosity.' },   
+                       { src: 'university-2.jpg', text: 'The batch that shared every deadline.' },
+                       { src: 'university-3.jpg', text: 'Presenting the final-year project.' },
+                       { src: 'university-4.jpg', text: 'Graduation day with family.' }        */
+                    { src: '../images/gallery-image/farewell-creast-chairman-sir.jpg', text: "Farewell Ceremony" },
+                    { src: '../images/gallery-image/orientation-cake.jpg', text: 'Orientation Day Celebration' },
+                    { src: '../images/gallery-image/orientation-senior.jpg', text: 'Orientation and Seniors' },
+                    { src: '../images/gallery-image/excursion-coxsbazar-V.jpg', text: "Memories from Cox's Bazar" },
+                    { src: '../images/gallery-image/birthday-celebration.jpg', text: 'Birthday Celebration' },
+                    { src: '../images/gallery-image/friends-outing-dighulia.jpg', text: 'Friends Outing at Dighulia' },
+                    { src: '../images/gallery-image/excursion-coxsbazar.jpg', text: "Excursion to Cox's Bazar" },
+                    { src: '../images/gallery-image/excursion-saintmartin.jpg', text: 'Saint Martin Island Excursion' },
+                    { src: '../images/gallery-image/after-lab-final.jpg', text: 'After the Lab Final Session' },
+                    { src: '../images/gallery-image/library-time.jpg', text: 'Time at the University Library' },
+                    { src: '../images/gallery-image/before-CT.jpg', text: 'Moments Before the Class Test' },
+                    { src: '../images/gallery-image/exam-relax.jpg', text: 'Relaxing After Exams' },
+                    { src: '../images/gallery-image/lab-time.jpg', text: 'Laboratory Session' },
+                    { src: '../images/gallery-image/picnic-sundarban.jpg', text: 'Picnic in the Sundarbans' },
+                    { src: '../images/gallery-image/entrance-day.jpg', text: 'Entrance Day on Campus' },
+                    { src: '../images/gallery-image/pohela-boisakh-rally.jpg', text: 'Pohela Boishakh Rally' },
+                    { src: '../images/gallery-image/university-admission.jpg', text: 'University Admission Memories' },
+                    { src: '../images/gallery-image/picnic-sreemangal.jpg', text: 'Picnic at Sreemangal' },
+                    { src: '../images/gallery-image/drone-pust.jpg', text: 'My Drone Project' },
+                    { src: '../images/gallery-image/before-viva-voce.jpg', text: 'Before the Viva Voce' },
+                    { src: '../images/gallery-image/campus-picnic.jpg', text: 'Campus Picnic with Friends' },
+                    { src: '../images/gallery-image/campus-picnic-sir-we.jpg', text: 'Campus Picnic with Teachers' },
+                    { src: '../images/gallery-image/industrial-training-moment.jpg', text: 'Industrial Training Experience' },
+                    { src: '../images/gallery-image/BBQ-night-1.jpg', text: 'Barbecue Night with Friends' },
+                    { src: '../images/gallery-image/BBQ-night-2.jpg', text: 'Barbecue Night Memories' },
+                    { src: '../images/gallery-image/amiakhum-after-recovering.jpg', text: 'Amiakhum Adventure After Recovery' },
+                    { src: '../images/gallery-image/excursion-bandarban.jpg', text: 'Excursion to Bandarban' },
+                    { src: '../images/gallery-image/excursion-nilgiri.jpg', text: 'Exploring Nilgiri Hills' },
+                    { src: '../images/gallery-image/excursion-nilgiri-we.jpg', text: 'Nilgiri Trip with Friends' },
+                    { src: '../images/gallery-image/excursion-nilgiri-sir-tree.jpg', text: 'Nilgiri Trip with Our Teacher' },
+                    { src: '../images/gallery-image/excursion-nilgiri-double-hand.jpg', text: 'Fun Moments at Nilgiri' },
+                    { src: '../images/gallery-image/excursion-saintmartin-lcp-sir.jpg', text: 'Saint Martin Trip with Our Teacher' },
+                    { src: '../images/gallery-image/excursion-saintmartin-we.jpg', text: 'Saint Martin Island with Friends' },
+                    { src: '../images/gallery-image/iftar-mahfil-dept.jpg', text: 'Departmental Iftar Gathering' },
+                    { src: '../images/gallery-image/excursion-fun-sir-madam.jpg', text: 'Excursion Fun with Teachers' },
+                    { src: '../images/gallery-image/thesis-dept.jpg', text: 'Thesis Research at the Department' },
+                    { src: '../images/gallery-image/thesis-defended.jpg', text: 'Thesis Defense Day' },
+                    { src: '../images/gallery-image/thesis-group.jpg', text: 'Thesis Group Memories' },
+                    { src: '../images/gallery-image/farewell-we-stage-sir.jpg', text: 'Farewell Ceremony with Our Teacher' },
+                    { src: '../images/gallery-image/farewell-we.jpg', text: 'Farewell Celebration' },
+                    { src: '../images/gallery-image/farewell-group-pic.jpg', text: 'Farewell Group Photograph' },
+                    { src: '../images/gallery-image/classroom-fun.jpg', text: 'Fun Moments in the Classroom' },
+                    { src: '../images/gallery-image/library-time-2.jpg', text: 'Study Time at the Library' },
+                    { src: '../images/gallery-image/pust-artwall.jpg', text: 'Exploring Campus Artwork' },
+                    { src: '../images/gallery-image/1st-yr-before-vacation.jpg', text: 'First-Year Memories Before Vacation' },
+                    { src: '../images/gallery-image/labwork-1.jpg', text: 'Hands-On Laboratory Work' },
+                    { src: '../images/gallery-image/labwork-2.jpg', text: 'Practical Laboratory Experience' },
+                    { src: '../images/gallery-image/group-study.jpg', text: 'Group Study Session' },
+                    { src: '../images/gallery-image/lab-time-concentration.jpg', text: 'Focused Laboratory Work' },
+                    { src: '../images/gallery-image/sundarban-picnic-boys.JPG', text: "Boys' Picnic in the Sundarbans" },
+                    { src: '../images/gallery-image/sundarban-picnic-lcp-sir.jpg', text: 'Sundarbans Picnic with Our Teacher' },
+                    { src: '../images/gallery-image/sundarban-picnic-sabuj-sir.jpg', text: 'Sundarbans Picnic with Sabuj Sir' },
+                    { src: '../images/gallery-image/senior-junior-pakshi.jpg', text: 'Senior-Junior Gathering at Pakshi' },
+                    { src: '../images/gallery-image/entrance-day-2.JPG', text: 'Entrance Day Memories' },
+                    { src: '../images/gallery-image/entrance-day-3.JPG', text: 'More Memories from Entrance Day' },
+                    { src: '../images/gallery-image/entrance-day-my-group.JPG', text: 'My Group on Entrance Day' },
+                    { src: '../images/gallery-image/pohela-boisakh-rally-gate.JPG', text: 'Pohela Boishakh Rally at the Gate' },
+                    { src: '../images/gallery-image/pohela-boisakh-rashel-sir.JPG', text: 'Pohela Boishakh with Rashel Sir' },
+                    { src: '../images/gallery-image/pohela-boisakh-imran-sir.jpg', text: 'Pohela Boishakh with Imran Sir' },
+                    { src: '../images/gallery-image/outing-pakshi-boys.jpg', text: "Boys' Outing at Pakshi" },
+                    { src: '../images/gallery-image/outing-pakshi-all.jpg', text: 'Group Outing at Pakshi' },
+                    { src: '../images/gallery-image/picnic-sreemangal-we.JPG', text: 'Sreemangal Picnic with Friends' },
+                    { src: '../images/gallery-image/picnic-sreemangal-we-sir.JPG', text: 'Sreemangal Picnic with Our Teacher' },
+                    { src: '../images/gallery-image/eyeview-from-my-drone.jpg', text: 'PUST Aerial View from My Drone' },
+                    { src: '../images/gallery-image/excursion-dept-pic.jpg', text: 'Departmental Excursion Group Photo' },
+                    { src: '../images/gallery-image/excursion-dept-pic-2.jpg', text: 'Departmental Excursion Memories' },
+                    { src: '../images/gallery-image/dept-gossiping.jpeg', text: 'Gossiping with Department Friends' },
+                    { src: '../images/gallery-image/lunch-in-class-break.jpg', text: 'Lunch During the Class Break' },
+
                 ]
             },
             {
                 id: 'outings',
                 title: 'Social Outing',
                 layout: 'filmstrip',
-                every: 1500, /* ms between automatic photo changes */
-                speed: 500, /* ms the fade takes (smaller = snappier) */
-                height: 45, /* big photo height as % of screen height (smaller = smaller photo) */
+                every: 1500,
+                /* ms between automatic photo changes */
+                speed: 500,
+                /* ms the fade takes (smaller = snappier) */
+                height: 45,
+                /* big photo height as % of screen height (smaller = smaller photo) */
                 purpose: 'Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
                 photos: [
                     { src: 'outings-1.jpg', title: 'Day trip', text: 'A relaxed day out with colleagues.', size: 'wide' },
@@ -226,9 +308,12 @@
             {
                 id: 'travel-archive',
                 title: 'Travel Archive',
-                layout: 'postcards', /* NEW design: deck of photo prints that fly away + ticket-style caption panel */
-                every: 4000, /* ms between automatic photo changes */
-                speed: 600, /* ms the fade takes (smaller = snappier) */
+                layout: 'postcards',
+                /* NEW design: deck of photo prints that fly away + ticket-style caption panel */
+                every: 4000,
+                /* ms between automatic photo changes */
+                speed: 600,
+                /* ms the fade takes (smaller = snappier) */
                 purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way.',
                 photos: [
                     { src: 'travel-gallery-1.jpg', title: 'Place one', text: 'Short note about this place and the moment.' },
@@ -325,8 +410,8 @@
     /* coverflow: 3D carousel, the centre photo is large, neighbours tilt away on both sides (good for many photos) */
     L.coverflow = function(s) {
         return '<div class="g-cover"><div class="g-cfstage">' + s.photos.map(function(p, i) {
-            return '<figure class="g-cf" data-i="' + i + '" data-pos="x"><img data-src="' + esc(p.src) + '" alt="' + esc(p.title || '') + '" /><figcaption>' + cap(p) + '</figcaption></figure>';
-        }).join('') + '</div><button class="g-fnav g-fprev" aria-label="Previous">‹</button><button class="g-fnav g-fnext" aria-label="Next">›</button>' +
+                return '<figure class="g-cf" data-i="' + i + '" data-pos="x"><img data-src="' + esc(p.src) + '" alt="' + esc(p.title || '') + '" /><figcaption>' + cap(p) + '</figcaption></figure>';
+            }).join('') + '</div><button class="g-fnav g-fprev" aria-label="Previous">‹</button><button class="g-fnav g-fnext" aria-label="Next">›</button>' +
             '<span class="g-cfcount mono"></span></div>';
     };
 
@@ -391,9 +476,9 @@
             '.g-film .g-big::before,.g-film .g-big::after,.g-film::before,.g-film::after{display:none !important}' +
             '.g-film .g-big{display:block;margin:0 auto;background:transparent !important;box-shadow:none !important;padding:0;text-align:center}' +
             '.g-big img{max-width:100%;max-height:var(--fh,45vh);width:auto;height:auto;display:block;margin:0 auto;transition:opacity var(--tr,400ms) ease}' +
-                        '.g-big figcaption{display:block !important;position:static !important;visibility:visible !important;opacity:1;transform:none !important;height:auto !important;max-height:none !important;overflow:visible !important;margin:.3rem 0 0;padding:0 !important;line-height:1.3;background:none !important;color:inherit !important;transition:opacity var(--tr,400ms) ease}' +
+            '.g-big figcaption{display:block !important;position:static !important;visibility:visible !important;opacity:1;transform:none !important;height:auto !important;max-height:none !important;overflow:visible !important;margin:.3rem 0 0;padding:0 !important;line-height:1.3;background:none !important;color:inherit !important;transition:opacity var(--tr,400ms) ease}' +
             '.g-big figcaption .g-title{display:block !important;color:inherit !important;font-size:1.3rem;font-weight:600;line-height:1.25;margin:0 0 .1rem}' +
-            '.g-big figcaption .g-text{display:block !important;color:inherit !important;opacity:.75;font-size:.95rem;margin:0}'+
+            '.g-big figcaption .g-text{display:block !important;color:inherit !important;opacity:.75;font-size:.95rem;margin:0}' +
             '.g-big.out img,.g-big.out figcaption{opacity:0 !important}' +
             '.g-big:hover img{transform:none}' +
             '.g-thumbs{display:flex;gap:.5rem;overflow-x:auto;justify-content:center;margin-top:.5rem;padding-bottom:0}' +
@@ -404,15 +489,19 @@
     })();
 
     /* ---------- coverflow (section 06): no dark background, page colour shows through ---------- */
+    /* ---------- coverflow (section 06): whole photos, no dark background ---------- */
     (function() {
         var st = document.createElement('style');
         st.textContent =
             '.g-cover,.g-cfstage,.g-cf,.g-cf img{background:transparent !important}' +
             '.g-cover::before,.g-cover::after,.g-cfstage::before,.g-cfstage::after{display:none !important}' +
-            '.g-cover,.g-cfstage{box-shadow:none !important}';
+            '.g-cover,.g-cfstage{box-shadow:none !important}' +
+            '.g-cf img{object-fit:contain !important;object-position:center !important;width:100% !important;height:100% !important}' +
+            '.g-cf::before,.g-cf::after{display:none !important}' +
+            '.g-cf figcaption{...}' +
+            '.g-cf figcaption *{...}';
         document.head.appendChild(st);
     })();
-
     /* ---------- justified layout: mixed portrait/landscape photos auto-fit into full rows, no blank space, no crop ---------- */
     L.justified = function(s) {
         var H = +s.rowHeight || 220;
@@ -473,7 +562,7 @@
             '.g-pc{display:grid;gap:1.5rem;justify-items:center}' +
             '.g-pcdeck{position:relative;width:100%;max-width:48rem;height:min(62vh,540px);min-height:300px}' +
             '.g-pccard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;z-index:0;pointer-events:none;' +
-                'transition:transform var(--tr,600ms) cubic-bezier(.3,.7,.2,1),opacity var(--tr,600ms) ease}' +
+            'transition:transform var(--tr,600ms) cubic-bezier(.3,.7,.2,1),opacity var(--tr,600ms) ease}' +
             '.g-pcframe{background:#fff;padding:.6rem .6rem .45rem;box-shadow:0 10px 30px rgba(0,0,0,.22);max-width:92%;display:flex;flex-direction:column;align-items:center}' +
             '.g-pcframe img{display:block;max-width:100%;max-height:calc(min(62vh,540px) - 4.6rem);width:auto;height:auto}' +
             '.g-pccap{color:#2b2420;font-style:italic;font-size:1.02rem;padding:.55rem 0 .2rem}' +
@@ -485,7 +574,7 @@
             '.g-pccard.snap{transition:none !important}' +
             '.g-pcside{position:relative;width:100%;max-width:48rem;background:none;border:0;padding:0;display:flex;align-items:center;gap:1rem}' +
             '.g-stamp{display:none !important;position:absolute;top:-1.4rem;right:1.2rem;width:4.6rem;height:4.6rem;border-radius:50%;border:2px dashed var(--accent);color:var(--accent);' +
-                'background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);font-size:.55rem;letter-spacing:.12em}' +
+            'background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);font-size:.55rem;letter-spacing:.12em}' +
             '.g-stamp b{font-size:1.4rem;letter-spacing:0}' +
             '.g-pckick{display:none;font-size:.7rem;letter-spacing:.16em;color:var(--accent);margin-bottom:.6rem}' +
             '.g-pctext{display:none !important;min-height:0;transition:opacity calc(var(--tr,600ms)/2) ease,transform calc(var(--tr,600ms)/2) ease}' +
@@ -592,7 +681,7 @@
     }
 
 
-    
+
     lb.addEventListener('click', function(e) {
         if (e.target.closest('.prev')) lbShow(lbI - 1);
         else if (e.target.closest('.next')) lbShow(lbI + 1);
@@ -641,7 +730,10 @@
                 big.classList.add('out');
                 fswap = setTimeout(function() {
                     big.dataset.i = fi;
-                    bigImg.onerror = function() { bigImg.onerror = null; bigImg.src = PH; };
+                    bigImg.onerror = function() {
+                        bigImg.onerror = null;
+                        bigImg.src = PH;
+                    };
                     bigImg.src = p.src;
                     bigImg.alt = p.title || '';
                     bigCap.innerHTML = cap(p);
@@ -653,8 +745,10 @@
                 if (!reduce && ths.length > 1) ftimer = setInterval(function() { fgo(fi + 1); }, s.every || 3000);
             };
             Array.prototype.forEach.call(ths, function(t, k) {
-                t.addEventListener('click', function() { fgo(k);
-                    fplay(); });
+                t.addEventListener('click', function() {
+                    fgo(k);
+                    fplay();
+                });
             });
             fs.addEventListener('mouseenter', function() { clearInterval(ftimer); });
             fs.addEventListener('mouseleave', fplay);
@@ -704,8 +798,10 @@
                         for (var j = c; j < c + span; j++) top = Math.max(top, hs[j]);
                         for (var j2 = c; j2 < c + span; j2++) waste += top - hs[j2];
                         var sc = top + waste;
-                        if (sc < bestScore) { bestScore = sc;
-                            best = c; }
+                        if (sc < bestScore) {
+                            bestScore = sc;
+                            best = c;
+                        }
                     }
                     var w = cw * span + gap * (span - 1),
                         h = w / r,
@@ -767,23 +863,29 @@
                 });
                 ptxt.classList.add('out');
                 clearTimeout(ptxtT);
-                ptxtT = setTimeout(function() { ptxt.innerHTML = cap(ph[pi]);
-                    ptxt.classList.remove('out'); }, ptr / 2);
+                ptxtT = setTimeout(function() {
+                    ptxt.innerHTML = cap(ph[pi]);
+                    ptxt.classList.remove('out');
+                }, ptr / 2);
                 pcnt.textContent = pad2(pi + 1) + ' / ' + pad2(pn);
                 pstamp.textContent = pad2(pi + 1);
             };
             var pcPlay = function() {
                 clearInterval(ptimer);
                 if (!reduce && pn > 1) {
-                    ptimer = setInterval(function() { pcShow(pi + 1, 1);
-                        pcBar(true); }, pevery);
+                    ptimer = setInterval(function() {
+                        pcShow(pi + 1, 1);
+                        pcBar(true);
+                    }, pevery);
                     pcBar(true);
                 }
             };
             Array.prototype.forEach.call(pc.querySelectorAll('.g-pcb'), function(b) {
-                b.addEventListener('click', function() { var d = +b.dataset.d;
+                b.addEventListener('click', function() {
+                    var d = +b.dataset.d;
                     pcShow(pi + d, d);
-                    pcPlay(); });
+                    pcPlay();
+                });
             });
             pc.addEventListener('click', function(e) {
                 var c = e.target.closest('.g-pccard');
@@ -796,11 +898,15 @@
                 if (px == null) return;
                 var dx = e.clientX - px;
                 px = null;
-                if (Math.abs(dx) > 50) { pcShow(pi + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
-                    pcPlay(); }
+                if (Math.abs(dx) > 50) {
+                    pcShow(pi + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+                    pcPlay();
+                }
             });
-            pc.addEventListener('mouseenter', function() { clearInterval(ptimer);
-                pcBar(false); });
+            pc.addEventListener('mouseenter', function() {
+                clearInterval(ptimer);
+                pcBar(false);
+            });
             pc.addEventListener('mouseleave', pcPlay);
             pcPlay();
         }
@@ -852,7 +958,9 @@
             var cfs = cvr.querySelectorAll('.g-cf'),
                 cfN = cfs.length,
                 cfCnt = cvr.querySelector('.g-cfcount'),
-                cfC = 0, cfVis = false, cfX = null;
+                cfC = 0,
+                cfVis = false,
+                cfX = null;
             var cfSet = function() {
                 Array.prototype.forEach.call(cfs, function(el, i) {
                     var d = ((i - cfC) % cfN + cfN) % cfN;
@@ -862,23 +970,33 @@
                     if (near) { /* load only the photos close to the centre */
                         var im = el.querySelector('img');
                         if (!im.getAttribute('src')) {
-                            im.onerror = function() { im.onerror = null; im.src = PH; };
+                            im.onerror = function() {
+                                im.onerror = null;
+                                im.src = PH;
+                            };
                             im.src = im.dataset.src;
                         }
                     }
                 });
                 cfCnt.textContent = (cfC + 1) + ' / ' + cfN;
             };
-            var cfGo = function(i) { cfC = (i + cfN) % cfN; cfSet(); };
+            var cfGo = function(i) {
+                cfC = (i + cfN) % cfN;
+                cfSet();
+            };
             cvr.querySelector('.g-fprev').onclick = function() { cfGo(cfC - 1); };
             cvr.querySelector('.g-fnext').onclick = function() { cfGo(cfC + 1); };
             Array.prototype.forEach.call(cfs, function(el, i) {
-                el.addEventListener('click', function() { if (i === cfC) lbOpen(ph, i); else cfGo(i); });
+                el.addEventListener('click', function() {
+                    if (i === cfC) lbOpen(ph, i);
+                    else cfGo(i);
+                });
             });
             cvr.addEventListener('touchstart', function(e) { cfX = e.touches[0].clientX; }, { passive: true });
             cvr.addEventListener('touchend', function(e) {
                 if (cfX === null) return;
-                var dx = e.changedTouches[0].clientX - cfX; cfX = null;
+                var dx = e.changedTouches[0].clientX - cfX;
+                cfX = null;
                 if (Math.abs(dx) > 40) cfGo(cfC + (dx < 0 ? 1 : -1));
             });
             if ('IntersectionObserver' in window) new IntersectionObserver(function(en) { cfVis = en[0].isIntersecting; }).observe(cvr);
