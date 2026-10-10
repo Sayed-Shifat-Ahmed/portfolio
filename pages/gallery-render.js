@@ -15,6 +15,9 @@
      'row'        photos in a single horizontal scrolling row, caption under each
      'grid'       neat even grid, caption under each
      'mosaic'     mixed-size tiles (details appear on hover / tap)
+     'automosaic' mosaic that auto-fits portrait + landscape photos (whole photos, no gaps)
+     'filmstrip'  one big photo + details, thumbnails underneath, auto-plays
+     'justified'  mixed portrait/landscape photos auto-fit into full rows, no gaps, no crop
    PER-SECTION TIMING (add to any section; both are optional):
      every: 2500   milliseconds between automatic photo changes
                    (for 'row' it is the milliseconds each photo takes to pass by)
@@ -129,6 +132,7 @@
                 title: 'Moments at RTM-AKTU',
                 layout: 'row',
                 every: 4000, /* ms each photo takes to pass by (smaller = faster train) */
+                rowHeight: 300, /* height of the photos in px (width follows each photo's shape) */
                 purpose: 'Everyday life at RTM Al-Kabir Technical University: classrooms, labs, events and colleagues. Tap or hover a card to read its story.',
 
                 photos: [
@@ -204,9 +208,11 @@
             },
             {
                 id: 'outings',
-                title: 'Outing with Friends / Seniors / Colleagues',
-                layout: 'mosaic',
-                speed: 500, /* ms the transition / animation takes (smaller = snappier) */
+                title: 'Social Outing',
+                layout: 'filmstrip',
+                every: 3000, /* ms between automatic photo changes */
+                speed: 500, /* ms the fade takes (smaller = snappier) */
+                height: 45, /* big photo height as % of screen height (smaller = smaller photo) */
                 purpose: 'Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
                 photos: [
                     { src: 'outings-1.jpg', title: 'Day trip', text: 'A relaxed day out with colleagues.', size: 'wide' },
@@ -218,41 +224,9 @@
             },
 
             {
-                id: 'through-my-sight',
-                title: 'Through My Sight: Bangladesh',
-                layout: 'mosaic',
-                speed: 500, /* ms the transition / animation takes (smaller = snappier) */
-                purpose: 'Photographs of my country as I see it: rivers, hills, tea gardens, streets and people. Everyday Bangladesh, framed.',
-                photos: [
-                    { src: 'bangladesh-1.jpg', title: 'Tea garden', text: 'Morning mist over the tea estates of Sylhet.', size: 'wide' },
-                    { src: 'bangladesh-2.jpg', title: 'River life', text: 'A boatman at work on the river.', size: 'tall' },
-                    { src: 'bangladesh-3.jpg', title: 'Old street', text: 'Street scene, golden hour.' },
-                    { src: 'bangladesh-4.jpg', title: 'Hills & clouds', text: 'Clouds resting on the green hills.' },
-                    { src: 'bangladesh-5.jpg', title: 'Village road', text: 'A quiet village path after rain.' }
-                ]
-            },
-            {
-                id: 'framed-moment',
-                title: 'Framed Moment: Out and About',
-                layout: 'flip',
-                every: 2500, /* ms between automatic flips */
-                speed: 800, /* ms the transition / animation takes (smaller = snappier) */
-                cards: 4,
-                /* how many cards are shown; the other photos below rotate into them */
-                photoFlip: true,
-                /* cards flip photo-to-photo with no text, changing continuously */
-                /* ms between automatic flips */
-                purpose: 'Spontaneous captures from ordinary days: light, shadows, small details I noticed while out and about.',
-                photos: [
-                    { src: '../images/certificate-image/nWIECON-22.png', title: 'WIECON-2022' },
-                    { src: '../images/certificate-image/EnICT-2025.png', title: 'EICT-2025' },
-                    { src: '../images/certificate-image/WIkECON.jpeg', title: 'WIECON-2025' }
-                ]
-            },
-            {
                 id: 'travel-archive',
                 title: 'Travel Archive',
-                layout: 'slideshow',
+                layout: 'automosaic', /* mosaic that auto-fits portrait + landscape photos, no gaps. optional: cols: 4 */
                 every: 1500, /* ms between automatic photo changes */
                 speed: 700, /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'A growing archive of places I have travelled to, with what each place taught me or simply made me feel.',
@@ -260,6 +234,21 @@
                     { src: 'travel-1.jpg', title: 'Destination one', text: 'Short note about the place and the trip.' },
                     { src: 'travel-2.jpg', title: 'Destination two', text: 'Short note about the place and the trip.' },
                     { src: 'travel-3.jpg', title: 'Destination three', text: 'Short note about the place and the trip.' }
+                ]
+            },
+
+            {
+                id: 'travel-gallery',
+                title: 'Travel Gallery',
+                layout: 'postcards', /* NEW design: deck of photo prints that fly away + ticket-style caption panel */
+                every: 4000, /* ms between automatic photo changes */
+                speed: 600, /* ms the fade takes (smaller = snappier) */
+                purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way.',
+                photos: [
+                    { src: 'travel-gallery-1.jpg', title: 'Place one', text: 'Short note about this place and the moment.' },
+                    { src: 'travel-gallery-2.jpg', title: 'Place two', text: 'Short note about this place and the moment.' },
+                    { src: 'travel-gallery-3.jpg', title: 'Place three', text: 'Short note about this place and the moment.' },
+                    { src: 'travel-gallery-4.jpg', title: 'Place four', text: 'Short note about this place and the moment.' }
                 ]
             }
         ]
@@ -344,7 +333,7 @@
                 return '<figure class="g-item"' + (dup ? ' aria-hidden="true"' : '') + ' data-i="' + i + '"><div class="g-ph">' + img(p, false) + '</div><figcaption>' + cap(p) + '</figcaption></figure>';
             }).join('');
         }
-        return '<div class="g-row"><div class="g-train" style="--n:' + s.photos.length + '">' + items(false) + items(true) + '</div></div>';
+        return '<div class="g-row" style="--rh:' + (+s.rowHeight || 300) + 'px"><div class="g-train" style="--n:' + s.photos.length + ';--dur:' + (s.photos.length * (+s.every || 4000) / 1000) + 's">' + items(false) + items(true) + '</div></div>';
     };
 
     /* coverflow: 3D carousel, the centre photo is large, neighbours tilt away on both sides (good for many photos) */
@@ -399,6 +388,159 @@
         document.head.appendChild(st);
     })();
 
+    /* ---------- filmstrip layout: one big photo (whole, no crop) + details + thumbnails, auto-plays ---------- */
+    L.filmstrip = function(s) {
+        var p = s.photos[0];
+        return '<div class="g-film"' + (s.height ? ' style="--fh:' + (+s.height) + 'vh"' : '') + '><figure class="g-item g-big" data-i="0">' + img(p, false) +
+            '<figcaption>' + cap(p) + '</figcaption></figure>' +
+            '<div class="g-thumbs">' + s.photos.map(function(q, i) {
+                return '<button class="g-th' + (i ? '' : ' on') + '" data-th="' + i + '" aria-label="Photo ' + (i + 1) + '">' + img(q) + '</button>';
+            }).join('') + '</div></div>';
+    };
+
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-film{background:transparent !important;box-shadow:none !important}' +
+            '.g-film .g-big::before,.g-film .g-big::after,.g-film::before,.g-film::after{display:none !important}' +
+            '.g-film .g-big{display:block;margin:0 auto;background:transparent !important;box-shadow:none !important;padding:0;text-align:center}' +
+            '.g-big img{max-width:100%;max-height:var(--fh,45vh);width:auto;height:auto;display:block;margin:0 auto;transition:opacity var(--tr,400ms) ease}' +
+                        '.g-big figcaption{display:block !important;position:static !important;visibility:visible !important;opacity:1;transform:none !important;height:auto !important;max-height:none !important;overflow:visible !important;margin:.3rem 0 0;padding:0 !important;line-height:1.3;background:none !important;color:inherit !important;transition:opacity var(--tr,400ms) ease}' +
+            '.g-big figcaption .g-title{display:block !important;color:inherit !important;font-size:1.3rem;font-weight:600;line-height:1.25;margin:0 0 .1rem}' +
+            '.g-big figcaption .g-text{display:block !important;color:inherit !important;opacity:.75;font-size:.95rem;margin:0}'+
+            '.g-big.out img,.g-big.out figcaption{opacity:0 !important}' +
+            '.g-big:hover img{transform:none}' +
+            '.g-thumbs{display:flex;gap:.5rem;overflow-x:auto;justify-content:center;margin-top:.5rem;padding-bottom:0}' +
+            '.g-th{flex:0 0 auto;padding:0;border:2px solid transparent;background:none;cursor:pointer;opacity:.55;transition:all .2s}' +
+            '.g-th img{height:3.5rem;width:auto;display:block}' +
+            '.g-th.on,.g-th:hover{opacity:1;border-color:var(--accent)}';
+        document.head.appendChild(st);
+    })();
+
+    /* ---------- coverflow (section 06): no dark background, page colour shows through ---------- */
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-cover,.g-cfstage,.g-cf,.g-cf img{background:transparent !important}' +
+            '.g-cover::before,.g-cover::after,.g-cfstage::before,.g-cfstage::after{display:none !important}' +
+            '.g-cover,.g-cfstage{box-shadow:none !important}';
+        document.head.appendChild(st);
+    })();
+
+    /* ---------- justified layout: mixed portrait/landscape photos auto-fit into full rows, no blank space, no crop ---------- */
+    L.justified = function(s) {
+        var H = +s.rowHeight || 220;
+        return '<div class="g-just" data-h="' + H + '">' + s.photos.map(function(p, i) {
+            return '<figure class="g-tile g-jt" data-i="' + i + '" style="flex:150 1 ' + (H * 1.5) + 'px"><div class="g-pad" style="padding-bottom:66.6%"></div>' +
+                img(p, false) + '<figcaption>' + cap(p) + '</figcaption></figure>';
+        }).join('') + '</div>';
+    };
+
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-just{display:flex;flex-wrap:wrap;gap:.5rem}' +
+            '.g-just::after{content:"";flex-grow:100000}' +
+            '.g-jt{position:relative;margin:0;min-width:0;background:transparent !important}' +
+            '.g-jt .g-pad{display:block;width:100%}' +
+            '.g-jt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}';
+        document.head.appendChild(st);
+    })();
+
+    /* ---------- automosaic: mixed portrait/landscape photos packed like a mosaic, whole photos, no gaps ---------- */
+    L.automosaic = function(s) {
+        return '<div class="g-am"' + (s.cols ? ' data-cols="' + (+s.cols) + '"' : '') + '>' + s.photos.map(function(p, i) {
+            return '<figure class="g-tile g-at" data-i="' + i + '">' + img(p, false) + '<figcaption>' + cap(p) + '</figcaption></figure>';
+        }).join('') + '</div>';
+    };
+
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-am{position:relative}' +
+            '.g-am .g-at{position:absolute;margin:0;overflow:hidden;background:transparent !important}' +
+            '.g-am .g-at img{width:100%;height:100%;object-fit:cover;display:block}';
+        document.head.appendChild(st);
+    })();
+
+    /* ---------- postcards: a deck of photo prints that fly away one by one + a ticket-style caption panel ---------- */
+    L.postcards = function(s) {
+        var n = s.photos.length;
+        return '<div class="g-pc" style="--every:' + (+s.every || 4000) + 'ms">' +
+            '<div class="g-pcdeck">' + s.photos.map(function(p, i) {
+                return '<div class="g-pccard" data-i="' + i + '" data-d="' + (i < 3 ? i : 'x') + '"><div class="g-pcframe">' + img(p) +
+                    '<span class="g-pccap serif">' + esc(p.title) + '</span></div></div>';
+            }).join('') + '</div>' +
+            '<aside class="g-pcside">' +
+            '<div class="g-stamp mono"><span>VISITED</span><b>01</b></div>' +
+            '<p class="mono g-pckick">DESTINATION</p>' +
+            '<div class="g-pctext">' + cap(s.photos[0]) + '</div>' +
+            '<div class="g-pcbar"><i></i></div>' +
+            '<div class="g-pcctl"><span class="mono g-pccount">01 / ' + ('0' + n).slice(-2) + '</span>' +
+            '<span><button class="g-pcb" data-d="-1" aria-label="Previous">‹</button><button class="g-pcb" data-d="1" aria-label="Next">›</button></span></div>' +
+            '</aside></div>';
+    };
+
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-pc{display:grid;gap:1.5rem;justify-items:center}' +
+            '.g-pcdeck{position:relative;width:100%;max-width:48rem;height:min(62vh,540px);min-height:300px}' +
+            '.g-pccard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;z-index:0;pointer-events:none;' +
+                'transition:transform var(--tr,600ms) cubic-bezier(.3,.7,.2,1),opacity var(--tr,600ms) ease}' +
+            '.g-pcframe{background:#fff;padding:.6rem .6rem .45rem;box-shadow:0 10px 30px rgba(0,0,0,.22);max-width:92%;display:flex;flex-direction:column;align-items:center}' +
+            '.g-pcframe img{display:block;max-width:100%;max-height:calc(min(62vh,540px) - 4.6rem);width:auto;height:auto}' +
+            '.g-pccap{color:#2b2420;font-style:italic;font-size:1.02rem;padding:.55rem 0 .2rem}' +
+            '.g-pccard[data-d="0"]{opacity:1;z-index:3;pointer-events:auto;cursor:zoom-in}' +
+            '.g-pccard[data-d="1"]{opacity:1;z-index:2;transform:translate(22px,8px) rotate(3.5deg) scale(.96)}' +
+            '.g-pccard[data-d="2"]{opacity:1;z-index:1;transform:translate(-20px,12px) rotate(-3.5deg) scale(.92)}' +
+            '.g-pccard[data-d="x"]{transform:scale(.88)}' +
+            '.g-pccard.fly{transform:translateX(115%) rotate(16deg) !important;opacity:0 !important;z-index:4 !important}' +
+            '.g-pccard.snap{transition:none !important}' +
+            '.g-pcside{position:relative;width:100%;max-width:48rem;background:none;border:0;padding:0;display:flex;align-items:center;gap:1rem}' +
+            '.g-stamp{display:none !important;position:absolute;top:-1.4rem;right:1.2rem;width:4.6rem;height:4.6rem;border-radius:50%;border:2px dashed var(--accent);color:var(--accent);' +
+                'background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);font-size:.55rem;letter-spacing:.12em}' +
+            '.g-stamp b{font-size:1.4rem;letter-spacing:0}' +
+            '.g-pckick{display:none;font-size:.7rem;letter-spacing:.16em;color:var(--accent);margin-bottom:.6rem}' +
+            '.g-pctext{display:none !important;min-height:0;transition:opacity calc(var(--tr,600ms)/2) ease,transform calc(var(--tr,600ms)/2) ease}' +
+            '.g-pctext.out{opacity:0;transform:translateY(6px)}' +
+            '.g-pctext .g-title{display:none !important;font-size:1.75rem;line-height:1.2;margin-bottom:.5rem}' +
+            '.g-pcbar{order:2;flex:1;height:3px;background:var(--border);margin:0;overflow:hidden}' +
+            '.g-pcbar i{display:block;height:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}' +
+            '.g-pcbar.run i{animation:g-pcfill var(--every,4000ms) linear forwards}' +
+            '@keyframes g-pcfill{to{transform:scaleX(1)}}' +
+            '.g-pcctl{display:contents}.g-pccount{order:1}.g-pcctl>span:last-child{order:3;display:flex;white-space:nowrap}' +
+            '.g-pccount{font-size:.8rem;letter-spacing:.1em}' +
+            '.g-pcb{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--border);background:none;color:inherit;cursor:pointer;font-size:1.3rem;line-height:1;margin-left:.4rem;transition:all .2s}' +
+            '.g-pcb:hover{background:var(--accent);color:#fff;border-color:var(--accent)}';
+        document.head.appendChild(st);
+    })();
+
+    /* section chips at the top: each chip stays on one line, rows never overlap */
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-chips{display:flex !important;flex-wrap:wrap;gap:.6rem;align-items:center;margin:0 0 3rem !important;position:static !important;height:auto !important}' +
+            '.g-chips .g-chip{display:inline-block !important;position:static !important;white-space:nowrap;line-height:1.3 !important;height:auto !important;margin:0 !important}';
+        document.head.appendChild(st);
+    })();
+
+    /* train/row layout: every photo shows WHOLE at its own shape (no crop, no blank space), scrolls smoothly, pauses on hover */
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '.g-row{overflow:hidden !important;padding-bottom:0 !important;scroll-snap-type:none !important}' +
+            '.g-train{display:flex !important;width:max-content !important;gap:0 !important;animation:g-trainmove var(--dur,40s) linear infinite !important}' +
+            '.g-row:hover .g-train{animation-play-state:paused !important}' +
+            '@keyframes g-trainmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}' +
+            '.g-train .g-item{flex:0 0 auto !important;width:auto !important;margin:0 1rem 0 0 !important;cursor:zoom-in}' +
+            '.g-train .g-ph{aspect-ratio:auto !important;height:auto !important;width:auto !important;margin:0 !important;background:transparent !important;overflow:visible !important}' +
+            '.g-train .g-ph img{height:var(--rh,300px) !important;width:auto !important;max-width:none !important;object-fit:contain !important;display:block}' +
+            '.g-train figcaption{width:0;min-width:100%;margin-top:.4rem;font-size:.85rem}' +
+            '@media(max-width:600px){.g-train .g-ph img{height:calc(var(--rh,300px) * .7) !important}}';
+        document.head.appendChild(st);
+    })();
+
     /* page skeleton */
     var chips = GALLERY.sections.map(function(s) {
         return '<a href="#' + esc(s.id) + '" class="g-chip mono">' + esc(s.title) + '</a>';
@@ -407,7 +549,7 @@
     root.innerHTML =
         '<div class="section-head"><p class="eyebrow mono">' + esc(GALLERY.eyebrow) + '</p>' +
         '<h2 class="serif">' + esc(GALLERY.title) + '</h2><p class="intro">' + esc(GALLERY.intro) + '</p></div>' +
-        '<nav class="g-chips" aria-label="Gallery sections">' + chips + '</nav>' +
+        '<div class="g-chips" role="navigation" aria-label="Gallery sections">' + chips + '</div>' +
         GALLERY.sections.map(function(s, n) {
             var draw = L[s.layout] || L.grid;
             var vars = [];
@@ -462,6 +604,9 @@
         lb.hidden = true;
         document.body.style.overflow = '';
     }
+
+
+    
     lb.addEventListener('click', function(e) {
         if (e.target.closest('.prev')) lbShow(lbI - 1);
         else if (e.target.closest('.next')) lbShow(lbI + 1);
@@ -490,6 +635,189 @@
             var it = e.target.closest('.g-item,.g-tile,.g-slide');
             if (it && !e.target.closest('.g-nav')) lbOpen(ph, +it.dataset.i);
         });
+
+        /* filmstrip: click a thumbnail to switch, or let it auto-play (every: ms, speed: fade ms) */
+        var fs = sec.querySelector('.g-film');
+        if (fs) {
+            var big = fs.querySelector('.g-big'),
+                bigImg = big.querySelector('img'),
+                bigCap = big.querySelector('figcaption'),
+                strip = fs.querySelector('.g-thumbs'),
+                ths = fs.querySelectorAll('.g-th'),
+                fi = 0,
+                ftimer, fswap;
+            var fgo = function(i) {
+                fi = (i + ths.length) % ths.length;
+                var p = ph[fi];
+                Array.prototype.forEach.call(ths, function(t, k) { t.classList.toggle('on', k === fi); });
+                strip.scrollLeft = ths[fi].offsetLeft - strip.clientWidth / 2 + ths[fi].clientWidth / 2;
+                clearTimeout(fswap);
+                big.classList.add('out');
+                fswap = setTimeout(function() {
+                    big.dataset.i = fi;
+                    bigImg.onerror = function() { bigImg.onerror = null; bigImg.src = PH; };
+                    bigImg.src = p.src;
+                    bigImg.alt = p.title || '';
+                    bigCap.innerHTML = cap(p);
+                    big.classList.remove('out');
+                }, s.speed != null ? +s.speed : 400);
+            };
+            var fplay = function() {
+                clearInterval(ftimer);
+                if (!reduce && ths.length > 1) ftimer = setInterval(function() { fgo(fi + 1); }, s.every || 3000);
+            };
+            Array.prototype.forEach.call(ths, function(t, k) {
+                t.addEventListener('click', function() { fgo(k);
+                    fplay(); });
+            });
+            fs.addEventListener('mouseenter', function() { clearInterval(ftimer); });
+            fs.addEventListener('mouseleave', fplay);
+            fplay();
+        }
+
+        /* justified: once each photo has loaded, size its tile to the photo's own shape */
+        var jj = sec.querySelector('.g-just');
+        if (jj) {
+            var JH = +jj.dataset.h;
+            Array.prototype.forEach.call(jj.querySelectorAll('.g-jt'), function(fig) {
+                var im = fig.querySelector('img'),
+                    pad = fig.querySelector('.g-pad');
+                var fit = function() {
+                    if (!im.naturalWidth) return;
+                    var r = im.naturalWidth / im.naturalHeight;
+                    fig.style.flex = (r * 100) + ' 1 ' + (r * JH) + 'px';
+                    pad.style.paddingBottom = (100 / r) + '%';
+                };
+                if (im.complete) fit();
+                im.addEventListener('load', fit);
+            });
+        }
+
+        /* automosaic: wide tiles for landscape photos, narrow for portrait, each at its own shape; packed into the shortest column(s) */
+        var am = sec.querySelector('.g-am');
+        if (am) {
+            var tiles = am.querySelectorAll('.g-at'),
+                amq = 0;
+            var amLayout = function() {
+                var W = am.clientWidth,
+                    gap = 8;
+                if (!W) return;
+                var cols = +am.dataset.cols || (W < 560 ? 2 : (W < 900 ? 3 : 4)),
+                    cw = (W - gap * (cols - 1)) / cols,
+                    hs = [];
+                for (var k = 0; k < cols; k++) hs.push(0);
+                Array.prototype.forEach.call(tiles, function(t) {
+                    var im = t.querySelector('img'),
+                        r = im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5,
+                        span = (r > 1.25 && cols > 1) ? 2 : 1,
+                        best = 0,
+                        bestScore = 1e12;
+                    for (var c = 0; c + span <= cols; c++) {
+                        var top = 0,
+                            waste = 0;
+                        for (var j = c; j < c + span; j++) top = Math.max(top, hs[j]);
+                        for (var j2 = c; j2 < c + span; j2++) waste += top - hs[j2];
+                        var sc = top + waste;
+                        if (sc < bestScore) { bestScore = sc;
+                            best = c; }
+                    }
+                    var w = cw * span + gap * (span - 1),
+                        h = w / r,
+                        y = 0;
+                    for (var m = best; m < best + span; m++) y = Math.max(y, hs[m]);
+                    t.style.left = (best * (cw + gap)) + 'px';
+                    t.style.top = y + 'px';
+                    t.style.width = w + 'px';
+                    t.style.height = h + 'px';
+                    for (var n = best; n < best + span; n++) hs[n] = y + h + gap;
+                });
+                am.style.height = (Math.max.apply(null, hs) - gap) + 'px';
+            };
+            var amSoon = function() {
+                cancelAnimationFrame(amq);
+                amq = requestAnimationFrame(amLayout);
+            };
+            Array.prototype.forEach.call(tiles, function(t) { t.querySelector('img').addEventListener('load', amSoon); });
+            window.addEventListener('resize', amSoon);
+            amLayout();
+        }
+
+        /* postcards: deck of prints; the top one flies away, next comes up. auto-plays (every ms), fade/fly time = speed ms */
+        var pc = sec.querySelector('.g-pc');
+        if (pc) {
+            var pcs = pc.querySelectorAll('.g-pccard'),
+                pn = pcs.length,
+                pi = 0,
+                ptimer,
+                pbar = pc.querySelector('.g-pcbar'),
+                ptxt = pc.querySelector('.g-pctext'),
+                pcnt = pc.querySelector('.g-pccount'),
+                pstamp = pc.querySelector('.g-stamp b'),
+                pevery = +s.every || 4000,
+                ptr = s.speed != null ? +s.speed : 600,
+                pad2 = function(x) { return ('0' + x).slice(-2); },
+                ptxtT;
+            var pcBar = function(on) {
+                pbar.classList.remove('run');
+                void pbar.offsetWidth;
+                if (on) pbar.classList.add('run');
+            };
+            var pcShow = function(i, dir) {
+                var prev = pi;
+                pi = (i + pn) % pn;
+                if (dir > 0 && pn > 1) {
+                    var c = pcs[prev];
+                    c.classList.add('fly');
+                    setTimeout(function() {
+                        c.classList.add('snap');
+                        c.classList.remove('fly');
+                        void c.offsetWidth;
+                        c.classList.remove('snap');
+                    }, ptr + 40);
+                }
+                Array.prototype.forEach.call(pcs, function(k, j) {
+                    var d = (j - pi + pn) % pn;
+                    k.setAttribute('data-d', d < 3 ? d : 'x');
+                });
+                ptxt.classList.add('out');
+                clearTimeout(ptxtT);
+                ptxtT = setTimeout(function() { ptxt.innerHTML = cap(ph[pi]);
+                    ptxt.classList.remove('out'); }, ptr / 2);
+                pcnt.textContent = pad2(pi + 1) + ' / ' + pad2(pn);
+                pstamp.textContent = pad2(pi + 1);
+            };
+            var pcPlay = function() {
+                clearInterval(ptimer);
+                if (!reduce && pn > 1) {
+                    ptimer = setInterval(function() { pcShow(pi + 1, 1);
+                        pcBar(true); }, pevery);
+                    pcBar(true);
+                }
+            };
+            Array.prototype.forEach.call(pc.querySelectorAll('.g-pcb'), function(b) {
+                b.addEventListener('click', function() { var d = +b.dataset.d;
+                    pcShow(pi + d, d);
+                    pcPlay(); });
+            });
+            pc.addEventListener('click', function(e) {
+                var c = e.target.closest('.g-pccard');
+                if (c && c.getAttribute('data-d') === '0') lbOpen(ph, +c.dataset.i);
+            });
+            var px = null,
+                deck = pc.querySelector('.g-pcdeck');
+            deck.addEventListener('pointerdown', function(e) { px = e.clientX; });
+            deck.addEventListener('pointerup', function(e) {
+                if (px == null) return;
+                var dx = e.clientX - px;
+                px = null;
+                if (Math.abs(dx) > 50) { pcShow(pi + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+                    pcPlay(); }
+            });
+            pc.addEventListener('mouseenter', function() { clearInterval(ptimer);
+                pcBar(false); });
+            pc.addEventListener('mouseleave', pcPlay);
+            pcPlay();
+        }
 
         /* slideshow */
         var ss = sec.querySelector('.g-slideshow');
