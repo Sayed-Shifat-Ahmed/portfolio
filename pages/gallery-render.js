@@ -210,7 +210,7 @@
                 id: 'outings',
                 title: 'Social Outing',
                 layout: 'filmstrip',
-                every: 3000, /* ms between automatic photo changes */
+                every: 1500, /* ms between automatic photo changes */
                 speed: 500, /* ms the fade takes (smaller = snappier) */
                 height: 45, /* big photo height as % of screen height (smaller = smaller photo) */
                 purpose: 'Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
@@ -226,20 +226,6 @@
             {
                 id: 'travel-archive',
                 title: 'Travel Archive',
-                layout: 'automosaic', /* mosaic that auto-fits portrait + landscape photos, no gaps. optional: cols: 4 */
-                every: 1500, /* ms between automatic photo changes */
-                speed: 700, /* ms the transition / animation takes (smaller = snappier) */
-                purpose: 'A growing archive of places I have travelled to, with what each place taught me or simply made me feel.',
-                photos: [
-                    { src: 'travel-1.jpg', title: 'Destination one', text: 'Short note about the place and the trip.' },
-                    { src: 'travel-2.jpg', title: 'Destination two', text: 'Short note about the place and the trip.' },
-                    { src: 'travel-3.jpg', title: 'Destination three', text: 'Short note about the place and the trip.' }
-                ]
-            },
-
-            {
-                id: 'travel-gallery',
-                title: 'Travel Gallery',
                 layout: 'postcards', /* NEW design: deck of photo prints that fly away + ticket-style caption panel */
                 every: 4000, /* ms between automatic photo changes */
                 speed: 600, /* ms the fade takes (smaller = snappier) */
