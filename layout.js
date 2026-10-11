@@ -25,7 +25,7 @@
   var MORE = [   /* the "More" drop-down */
     ['Attended',         'attended.html',    '#C2410C', '#9A3412'],
     ["Student's Corner", 'students.html',    '#C2410C', '#9A3412'],
-    ['Life',             'life.html',        '#D4A017', '#B88A10'],
+    ['Life Interest',             'life.html',        '#D4A017', '#B88A10'],
     ['References',       'references.html',  '#E0457B', '#C73869'],
     ['Contact',          'contact.html',     '#E0457B', '#C73869']
   ];

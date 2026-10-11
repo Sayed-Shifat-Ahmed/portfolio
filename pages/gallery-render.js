@@ -36,7 +36,7 @@
                 id: 'deans-award-2024',
                 title: "Dean's Award 2024",
                 layout: 'slideshowfull',
-                every: 1500,
+                every: 1200,
                 /* ms between automatic photo changes */
                 speed: 700,
                 /* ms the transition / animation takes (smaller = snappier) */
@@ -44,7 +44,7 @@
                 photos: [
                     { src: '../images/gallery-image/award-receiving.JPG', title: 'Receiving the award', text: 'Accepting the Dean\'s Award on stage at the ceremony.' },
                     { src: '../images/gallery-image/at-PUST.JPG', title: 'at PUST campus', text: 'The place who made me.' },
-                    { src: '../images/gallery-image/certificate.jpeg', title: 'Certificate', text: 'The certificate and crest, a reminder to keep going.' },
+                    { src: '../images/gallery-image/certificate.jpg', title: 'Certificate', text: 'The certificate and crest, a reminder to keep going.' },
                     { src: '../images/gallery-image/creast.png', title: 'Crest', text: 'The certificate and crest, a reminder to keep going.' },
                     { src: '../images/gallery-image/people-behind.JPG', title: 'With my parent', text: 'People behind this success.' },
                 ]
@@ -89,19 +89,19 @@
                     { src: '../images/gallery-image/PECCII-1-certificate.JPEG' },
                     { src: '../images/gallery-image/PECCII-presentation.JPG' },
                     { src: '../images/gallery-image/PECCII-certificate-2.JPG' },
-                    { src: '../images/gallery-image/PECCII-banner.JPG', title: 'MARSCON-2026 Inauguration' },
-                    { src: '../images/gallery-image/MARSCON-opening.JPG', title: 'MARSCON-2026 Presentation' },
+                    { src: '../images/gallery-image/PECCII-banner.JPG', title: 'At PECCII-2026 conference' },
+                    { src: '../images/gallery-image/MARSCON-opening.JPG', title: 'MARSCON-2026 Inauguration' },
                     { src: '../images/gallery-image/MARSCON-presentation-1.JPG', title: 'MARSCON-2026 Presentation' },
                     { src: '../images/gallery-image/MARSCON-presentation-2.JPG', title: 'MARSCON-2026 Presentation' },
-                    { src: '../images/gallery-image/MARSCON-banner.JPG', title: 'MARSCON-2026 Presentation' },
-                    { src: '../images/gallery-image/MARSCON-outside.JPG', title: 'MARSCON-2026 Presentation' }
+                    { src: '../images/gallery-image/MARSCON-banner.JPG', title: 'At MARSCON-2026 conference' },
+                    { src: '../images/gallery-image/MARSCON-outside.JPG', title: 'At MARSCON-2026 conference' }
                 ]
             },
             {
                 id: 'Moments at RTM-AKTU',
                 title: 'Conference / Seminar / Workshop',
                 layout: 'slideshowleft',
-                every: 1500,
+                every: 1200,
                 /* ms between automatic photo changes */
                 speed: 200,
                 /* ms the transition / animation takes (smaller = snappier) */
@@ -144,59 +144,56 @@
                 purpose: 'Everyday life at RTM Al-Kabir Technical University: classrooms, labs, events and colleagues. Tap or hover a card to read its story.',
 
                 photos: [
-                    { src: '../images/gallery-image/1.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/2.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/3.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/4.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/5.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/6.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/7.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/8.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/9.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/10.JPG', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/11.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/12.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/13.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/14.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/15.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/16.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/17.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/18.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/19.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/20.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/21.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/22.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/23.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/24.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/25.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/26.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/27.JPG', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/28.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/29.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/30.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/31.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/32.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/33.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/34.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/35.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/36.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/37.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/38.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/39.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/40.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/41.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/42.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/43.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/44.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/45.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/46.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/47.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/48.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/49.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/50.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/51.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/52.jpg', text: 'Precious moment at the university.' },
-                    { src: '../images/gallery-image/53.jpg', text: 'Precious moment at the university.' }
+                    { src: '../images/gallery-image/1.jpg', text: 'EEE Department Iftar Mahfil 2026.' },
+                    { src: '../images/gallery-image/2.jpg', text: 'Freshers Orientation 2026.' },
+                    { src: '../images/gallery-image/3.jpg', text: 'Freshers Orientation 2026..' },
+                    { src: '../images/gallery-image/4.jpg', text: 'Freshers Orientation 2026..' },
+                    { src: '../images/gallery-image/5.jpg', text: 'Project Presentation.' },
+                    { src: '../images/gallery-image/6.jpg', text: 'colleagues outing.' },
+                    { src: '../images/gallery-image/7.jpg', text: 'colleagues outing.' },
+                    { src: '../images/gallery-image/8.jpg', text: 'Final Examination Spring-2025.' },
+                    { src: '../images/gallery-image/9.jpg', text: 'Victory Day Celebration.' },
+                    { src: '../images/gallery-image/10.JPG', text: 'Victory Day Celebration.' },
+                    { src: '../images/gallery-image/11.jpg', text: 'Birthday Celebration.' },
+                    { src: '../images/gallery-image/12.jpg', text: 'Birthday Celebration.' },
+                    { src: '../images/gallery-image/13.jpg', text: 'Birthday Celebration.' },
+                    { src: '../images/gallery-image/14.jpg', text: 'EEE-day Overbation of VC Sir.' },
+                    { src: '../images/gallery-image/15.jpg', text: 'Dept. Office Desk.' },
+                    { src: '../images/gallery-image/16.jpg', text: 'EEE-day visit of VC Sir.' },
+                    { src: '../images/gallery-image/17.jpg', text: 'EEE-day Celebration.' },
+                    { src: '../images/gallery-image/18.jpg', text: 'Open book circuit Solving Contest.' },
+                    { src: '../images/gallery-image/19.jpg', text: 'University colleagues.' },
+                    { src: '../images/gallery-image/20.jpg', text: 'Fresher Reception Program.' },
+                    { src: '../images/gallery-image/21.jpg', text: 'Fresher Reception Program.' },
+                    { src: '../images/gallery-image/22.jpg', text: 'Barbecue gathering with RTM people.' },
+                    { src: '../images/gallery-image/23.jpg', text: 'Barbecue moment.' },
+                    { src: '../images/gallery-image/24.jpg', text: 'Iftar moment with colleagues.' },
+                    { src: '../images/gallery-image/25.jpg', text: 'Iftar moment with colleagues.' },
+                    { src: '../images/gallery-image/26.jpg', text: 'Semester final examination.' },
+                    { src: '../images/gallery-image/27.JPG', text: 'EEE Department Iftar Mahfil.' },
+                    { src: '../images/gallery-image/28.jpg', text: 'EEE Department Iftar Mahfil.' },
+                    { src: '../images/gallery-image/29.jpg', text: 'Departmental colleagues outing.' },
+                    { src: '../images/gallery-image/30.jpg', text: 'Adventure with faculty members.' },
+                    { src: '../images/gallery-image/32.jpg', text: 'Greetings to our departmental Head for his achievement.' },
+                    { src: '../images/gallery-image/33.jpg', text: 'Machine Lab Setup.' },
+                    { src: '../images/gallery-image/34.jpg', text: 'Exam invigilation.' },
+                    { src: '../images/gallery-image/35.jpg', text: 'Opening new Laboratory by UGC member.' },
+                    { src: '../images/gallery-image/36.jpg', text: 'Arrange seminar of IQAC cell.' },
+                    { src: '../images/gallery-image/37.jpg', text: 'Sports day moment at the university.' },
+                    { src: '../images/gallery-image/38.jpg', text: 'Sports day moment at the university.' },
+                    { src: '../images/gallery-image/39.jpg', text: 'At university program.' },
+                    { src: '../images/gallery-image/40.jpg', text: 'Colleagues hangout.' },
+                    { src: '../images/gallery-image/41.jpg', text: 'Disscussion about automation.' },
+                    { src: '../images/gallery-image/42.jpg', text: 'Gossiping in break.' },
+                    { src: '../images/gallery-image/43.jpg', text: 'Iftar mahfil 2025.' },
+                    { src: '../images/gallery-image/44.jpg', text: 'Tea invitation' },
+                    { src: '../images/gallery-image/45.jpg', text: 'Invigilation of project tshowcasing.' },
+                    { src: '../images/gallery-image/46.jpg', text: 'ICT quiz competition.' },
+                    { src: '../images/gallery-image/47.jpg', text: 'Inauguration of EEE Carnival 2025.' },
+                    { src: '../images/gallery-image/48.jpg', text: 'Exam invigilation.' },
+                    { src: '../images/gallery-image/49.jpg', text: 'Birthday Celebration with office colleagues.' },
+                    { src: '../images/gallery-image/50.jpg', text: 'Exam invigilation.' },
+                    { src: '../images/gallery-image/51.jpg', text: 'Open book exam competition.' }
                 ]
             },
 
@@ -204,9 +201,9 @@
                 id: 'university-moments',
                 title: 'University Precious Moments',
                 layout: 'coverflow',
-                every: 1500,
+                every: 1000,
                 /* ms between automatic photo changes */
-                speed: 600,
+                speed: 500,
                 /* ms the transition / animation takes (smaller = snappier) */
                 purpose: 'Memories from my own student years: classmates, teachers, late-night study sessions and the convocation.',
                 photos: [
@@ -227,7 +224,9 @@
                     { src: '../images/gallery-image/before-CT.jpg', text: 'Moments Before the Class Test' },
                     { src: '../images/gallery-image/exam-relax.jpg', text: 'Relaxing After Exams' },
                     { src: '../images/gallery-image/lab-time.jpg', text: 'Laboratory Session' },
-                    { src: '../images/gallery-image/picnic-sundarban.jpg', text: 'Picnic in the Sundarbans' },
+                    { src: '../images/gallery-image/signing-out.jpg', text: 'After that 170501 was past' },
+                    { src: '../images/gallery-image/picnic-sundarban.jpg', text: 'Picnic in the Sundarban' },
+                    { src: '../images/gallery-image/gajnar-bil-3.jpg', text: 'Outing Hall-life' },
                     { src: '../images/gallery-image/entrance-day.jpg', text: 'Entrance Day on Campus' },
                     { src: '../images/gallery-image/pohela-boisakh-rally.jpg', text: 'Pohela Boishakh Rally' },
                     { src: '../images/gallery-image/university-admission.jpg', text: 'University Admission Memories' },
@@ -263,9 +262,9 @@
                     { src: '../images/gallery-image/labwork-2.jpg', text: 'Practical Laboratory Experience' },
                     { src: '../images/gallery-image/group-study.jpg', text: 'Group Study Session' },
                     { src: '../images/gallery-image/lab-time-concentration.jpg', text: 'Focused Laboratory Work' },
-                    { src: '../images/gallery-image/sundarban-picnic-boys.JPG', text: "Boys' Picnic in the Sundarbans" },
-                    { src: '../images/gallery-image/sundarban-picnic-lcp-sir.jpg', text: 'Sundarbans Picnic with Our Teacher' },
-                    { src: '../images/gallery-image/sundarban-picnic-sabuj-sir.jpg', text: 'Sundarbans Picnic with Sabuj Sir' },
+                    { src: '../images/gallery-image/sundarban-picnic-boys.JPG', text: "Boys' Picnic in the Sundarban" },
+                    { src: '../images/gallery-image/sundarban-picnic-lcp-sir.jpg', text: 'Sundarban Picnic with Our Teacher' },
+                    { src: '../images/gallery-image/sundarban-picnic-sabuj-sir.jpg', text: 'Sundarban Picnic with Sabuj Sir' },
                     { src: '../images/gallery-image/senior-junior-pakshi.jpg', text: 'Senior-Junior Gathering at Pakshi' },
                     { src: '../images/gallery-image/entrance-day-2.JPG', text: 'Entrance Day Memories' },
                     { src: '../images/gallery-image/entrance-day-3.JPG', text: 'More Memories from Entrance Day' },
@@ -286,42 +285,136 @@
                 ]
             },
             {
-                id: 'outings',
-                title: 'Social Outing',
+                id: 'travel-archive',
+                title: 'Travel Archive',
                 layout: 'filmstrip',
-                every: 1500,
+                every: 1200,
                 /* ms between automatic photo changes */
-                speed: 500,
+                speed: 300,
                 /* ms the fade takes (smaller = snappier) */
                 height: 45,
                 /* big photo height as % of screen height (smaller = smaller photo) */
-                purpose: 'Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
+                highlight: '#e0201b',
+                /* colour of the frame around the current thumbnail */
+                purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way. Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
                 photos: [
-                    { src: 'outings-1.jpg', title: 'Day trip', text: 'A relaxed day out with colleagues.', size: 'wide' },
-                    { src: 'outings-2.jpg', title: 'With seniors', text: 'Long conversation with respected seniors.' },
-                    { src: 'outings-3.jpg', title: 'Friends', text: 'Old friends, same old jokes.', size: 'tall' },
-                    { src: 'outings-4.jpg', title: 'Picnic', text: 'Lunch together by the river.' },
-                    { src: 'outings-5.jpg', title: 'Group shot', text: 'Everyone in one frame, finally.', size: 'wide' }
+                    /*       { src: 'outings-1.jpg', title: 'Day trip', text: 'A relaxed day out with colleagues.', size: 'wide' },    */
+                    { src: '../images/gallery-image/padma-2.jpg', text: 'Padma River, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/puthia-rajbari.jpg', text: 'Puthia Rajbari, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sundarban-4.jpg', text: 'Sundarban, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sundarban-3.jpg', text: 'Sundarban, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sundarban-2.jpg', text: 'Sundarban, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/shopnopuri.jpg', text: 'Zia Park, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/zia-park-rajshahi.jpg', text: 'Zia Park, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/foys-lake.jpg', text: 'Foy\'s Lake, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/inanai-beach-4.jpg', text: 'Inani Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/inanai-beach-3.jpg', text: 'Inani Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/coxsbazar-2.jpg', text: 'Cox\'s Bazar Sea Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/inanai-beach-2.jpg', text: 'Inani Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sundarban.JPG', text: 'Sundarban, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/pakshi-2.jpg', text: 'Pakshi, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/inanai-beach.jpg', text: 'Inani Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sikkim-4.jpg', text: 'Sikkim, India', size: 'wide' },
+                    { src: '../images/gallery-image/eden-garden-kolkata.jpg', text: 'Eden Gardens, Kolkata, India', size: 'wide' },
+                    { src: '../images/gallery-image/book-fair.jpg', text: 'Book Fair, Dhaka, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/amitav-bacchan-waterfall.jpg', text: 'Amitabh Bachchan Waterfall, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sikkim-3.jpg', text: 'Sikkim, India', size: 'wide' },
+                    { src: '../images/gallery-image/victoria-memorial-park.jpg', text: 'Victoria Memorial, Kolkata, India', size: 'wide' },
+                    { src: '../images/gallery-image/gajnar-bil-3.jpg', text: 'Gajnar Bil, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/gajnar-bil-2.jpg', text: 'Gajnar Bil, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sikkim-2.jpg', text: 'Sikkim, India', size: 'wide' },
+                    { src: '../images/gallery-image/sikkim.jpg', text: 'Sikkim, India', size: 'wide' },
+                    { src: '../images/gallery-image/RU-2.jpg', text: 'University of Rajshahi, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/madhobpur-lake.jpg', text: 'Madhabpur Lake, Moulvibazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/lawachara.jpg', text: 'Lawachara National Park, Moulvibazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/padma.jpg', text: 'Padma River, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/gajnar-bil.jpg', text: 'Gajnar Bil, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/SGHS.jpg', text: 'SGHS, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/RU.jpg', text: 'University of Rajshahi, Rajshahi, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/pakshi.jpg', text: 'Pakshi, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/chatmohor.jpg', text: 'Chatmohar, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/bilchandra-dighulia.jpg', text: 'Bilchandra, Dighalia, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/nilachol.jpg', text: 'Nilachal, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/debotakhum-4.jpg', text: 'Debotakhum, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/debotakhum-3.jpg', text: 'Debotakhum, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/debotakhum-2.jpg', text: 'Debotakhum, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/chimbuk-pahar.jpg', text: 'Chimbuk Hill, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/coxsbazar.jpg', text: 'Cox\'s Bazar Sea Beach, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/saintmartin-3.jpg', text: 'Saint Martin Island, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/saintmartin-2.jpg', text: 'Saint Martin Island, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/saintmartin.jpg', text: 'Saint Martin Island, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/debotakhum.jpg', text: 'Debotakhum, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/nilgiri.jpg', text: 'Nilgiri, Bandarban, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/signing-out.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/tebuni-horticulture.jpg', text: 'Tebunia Horticulture Center, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/jaglong-2.jpg', text: 'Jaflong, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/jaglong.jpg', text: 'Jaflong, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/ratagul.jpg', text: 'Ratargul Swamp Forest, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sylhet-int-stadium-2.jpg', text: 'Sylhet International Cricket Stadium, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/uttara-gonovobon.jpg', text: 'Uttara Ganabhaban, Natore, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/humhum.jpg', text: 'Hum Hum Waterfall, Moulvibazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/lasubon.jpg', text: 'Lasubon, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sada-pathor-2.jpg', text: 'Sada Pathor, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sada-pathor.jpg', text: 'Sada Pathor, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/lexus-garden-2.jpg', text: 'Lexus Garden, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/lexus-garden.jpg', text: 'Lexus Garden, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sylhet-int-stadium.jpg', text: 'Sylhet International Cricket Stadium, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/lala-khal.jpg', text: 'Lalakhal, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/dibir-haor-shapla-bil.jpg', text: 'Dibir Haor Shapla Beel, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/cuet.jpg', text: 'CUET, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/potenga-seaport-2.jpg', text: 'Potenga Seaport, Chittagong, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/potenga-seaport.jpg', text: 'Potenga Seaport, Chittagong, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/guliakhali-2.jpg', text: 'Guliakhali Sea Beach, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/guliakhali.jpg', text: 'Guliakhali Sea Beach, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/goyainghat.jpg', text: 'Gowainghat, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/panthumai.jpg', text: 'Panthumai Waterfall, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/bichnakandi.jpg', text: 'Bichanakandi, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/likkhonchora.jpg', text: 'Likkhonchora, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/tanguar-haor-3.jpg', text: 'Tanguar Haor, Sunamganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/tanguar-haor-2.jpg', text: 'Tanguar Haor, Sunamganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/niladri-lake-2.jpg', text: 'Niladri Lake, Sunamganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/abongi-tila.jpg', text: 'Abongi Tila, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/birthday-celebration.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/friends-outing-dighulia.jpg', text: 'Dighalia, Khulna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/excursion-coxsbazar.jpg', text: 'Cox\'s Bazar, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/excursion-coxsbazar-V.jpg', text: 'Cox\'s Bazar, Chattogram, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/excursion-saintmartin.jpg', text: 'Saint Martin Island, Cox\'s Bazar, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/after-lab-final.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/farewell-creast-chairman-sir.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/orientation-cake.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/orientation-senior.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/shikor.JPG', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/PUST-pabna.JPG', text: 'Pabna University of Science and Technology, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/panama-city.jpg', text: 'Panam City, Narayanganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sonargaon-4.jpg', text: 'Sonargaon, Narayanganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sonargaon-2.jpg', text: 'Sonargaon, Narayanganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sonargaon.jpg', text: 'Sonargaon, Narayanganj, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/sadarghat.jpg', text: 'Sadarghat, Dhaka, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/ahsan-monjil.jpg', text: 'Ahsan Manzil, Dhaka, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/ruppur-ishwardi-pabna.jpg', text: 'Rooppur Nuclear Power Plant, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/saraghat-ishwardi.jpg', text: 'Saraghat, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/thesis-group-dinner-sir-2.jpg', text: 'PUST, Pabna, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/SGHS-3.jpg', text: 'SGHS, Sylhet, Bangladesh', size: 'wide' },
+                    { src: '../images/gallery-image/SGHS-2.jpg', text: 'SGHS, Sylhet, Bangladesh', size: 'wide' }
+
                 ]
             },
 
-            {
-                id: 'travel-archive',
-                title: 'Travel Archive',
-                layout: 'postcards',
-                /* NEW design: deck of photo prints that fly away + ticket-style caption panel */
-                every: 4000,
-                /* ms between automatic photo changes */
-                speed: 600,
-                /* ms the fade takes (smaller = snappier) */
-                purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way.',
-                photos: [
-                    { src: 'travel-gallery-1.jpg', title: 'Place one', text: 'Short note about this place and the moment.' },
-                    { src: 'travel-gallery-2.jpg', title: 'Place two', text: 'Short note about this place and the moment.' },
-                    { src: 'travel-gallery-3.jpg', title: 'Place three', text: 'Short note about this place and the moment.' },
-                    { src: 'travel-gallery-4.jpg', title: 'Place four', text: 'Short note about this place and the moment.' }
-                ]
-            }
+            /*       {
+                       id: 'travel-archive',
+                       title: 'Travel Archive',
+                       layout: 'postcards',
+                       every: 4000,
+                       speed: 600,
+                       purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way.',
+                       photos: [
+                           { src: 'travel-gallery-1.jpg', title: 'Place one', text: 'Short note about this place and the moment.' },
+                           { src: 'travel-gallery-2.jpg', title: 'Place two', text: 'Short note about this place and the moment.' },
+                           { src: 'travel-gallery-3.jpg', title: 'Place three', text: 'Short note about this place and the moment.' },
+                           { src: 'travel-gallery-4.jpg', title: 'Place four', text: 'Short note about this place and the moment.' }
+                       ]
+                   }   
+                   */
         ]
     };
 
@@ -404,7 +497,9 @@
                 return '<figure class="g-item"' + (dup ? ' aria-hidden="true"' : '') + ' data-i="' + i + '"><div class="g-ph">' + img(p, false) + '</div><figcaption>' + cap(p) + '</figcaption></figure>';
             }).join('');
         }
-        return '<div class="g-row" style="--rh:' + (+s.rowHeight || 300) + 'px"><div class="g-train" style="--n:' + s.photos.length + ';--dur:' + (s.photos.length * (+s.every || 4000) / 1000) + 's">' + items(false) + items(true) + '</div></div>';
+        return '<div class="g-rowwrap" style="--rh:' + (+s.rowHeight || 300) + 'px">' +
+            '<button class="g-nav prev" aria-label="Previous photo">‹</button><button class="g-nav next" aria-label="Next photo">›</button>' +
+            '<div class="g-row"><div class="g-train" style="--n:' + s.photos.length + ';--dur:' + (s.photos.length * (+s.every || 4000) / 1000) + 's">' + items(false) + items(true) + '</div></div></div>';
     };
 
     /* coverflow: 3D carousel, the centre photo is large, neighbours tilt away on both sides (good for many photos) */
@@ -459,10 +554,23 @@
         document.head.appendChild(st);
     })();
 
+    /* section 02 (Best Presentation Award): show every photo WHOLE at its own shape (no crop, no oversized/odd boxes) */
+    (function() {
+        var st = document.createElement('style');
+        st.textContent =
+            '#best-presentation-2026 .g-grid{align-items:start}' +
+            '#best-presentation-2026 .g-ph{aspect-ratio:4/3 !important;height:auto !important;overflow:hidden !important;padding:0 !important;background:rgba(0,0,0,.06) !important}' +
+            '#best-presentation-2026 .g-ph img{position:static !important;width:100% !important;height:100% !important;max-height:none !important;object-fit:contain !important;object-position:center !important;transform:none !important;display:block}' +
+            '#best-presentation-2026 .g-item:hover img{transform:none !important}';
+        document.head.appendChild(st);
+    })();
+
     /* ---------- filmstrip layout: one big photo (whole, no crop) + details + thumbnails, auto-plays ---------- */
     L.filmstrip = function(s) {
         var p = s.photos[0];
-        return '<div class="g-film"' + (s.height ? ' style="--fh:' + (+s.height) + 'vh"' : '') + '><figure class="g-item g-big" data-i="0">' + img(p, false) +
+        return '<div class="g-film" style="' + (s.height ? '--fh:' + (+s.height) + 'vh;' : '') + (s.highlight ? '--hl:' + esc(s.highlight) + ';' : '') + '">' +
+            '<button class="g-nav prev g-farrow" aria-label="Previous photo">‹</button><button class="g-nav next g-farrow" aria-label="Next photo">›</button>' +
+            '<figure class="g-item g-big" data-i="0">' + img(p, false) +
             '<figcaption>' + cap(p) + '</figcaption></figure>' +
             '<div class="g-thumbs">' + s.photos.map(function(q, i) {
                 return '<button class="g-th' + (i ? '' : ' on') + '" data-th="' + i + '" aria-label="Photo ' + (i + 1) + '">' + img(q) + '</button>';
@@ -481,10 +589,18 @@
             '.g-big figcaption .g-text{display:block !important;color:inherit !important;opacity:.75;font-size:.95rem;margin:0}' +
             '.g-big.out img,.g-big.out figcaption{opacity:0 !important}' +
             '.g-big:hover img{transform:none}' +
-            '.g-thumbs{display:flex;gap:.5rem;overflow-x:auto;justify-content:center;margin-top:.5rem;padding-bottom:0}' +
+            '.g-thumbs{display:flex;gap:.5rem;overflow-x:auto;justify-content:flex-start;margin-top:.5rem;padding-bottom:0;scroll-behavior:smooth}' +
+            '.g-thumbs .g-th:first-child{margin-left:auto}.g-thumbs .g-th:last-child{margin-right:auto}' +
             '.g-th{flex:0 0 auto;padding:0;border:2px solid transparent;background:none;cursor:pointer;opacity:.55;transition:all .2s}' +
             '.g-th img{height:3.5rem;width:auto;display:block}' +
-            '.g-th.on,.g-th:hover{opacity:1;border-color:var(--accent)}';
+            '.g-film{position:relative}' +
+            '.g-film .g-farrow{top:calc(var(--fh,45vh) / 2);z-index:3}' +
+            '.g-film .g-farrow.prev{left:.5rem}.g-film .g-farrow.next{right:.5rem}' +
+            '.g-thumbs{padding-top:.5rem;padding-bottom:.5rem}' +
+            '.g-th{width:auto !important;height:auto !important;padding:4px !important;border:3px solid transparent !important;border-radius:4px;outline:0 !important;overflow:visible !important;background:none !important;opacity:.5;transition:opacity .25s,border-color .25s}' +
+            '.g-th img{height:3.5rem;width:auto;display:block}' +
+            '.g-th:hover{opacity:.85}' +
+            '.g-th.on{opacity:1 !important;border-color:var(--hl,#e0201b) !important}';
         document.head.appendChild(st);
     })();
 
@@ -499,7 +615,8 @@
             '.g-cf img{object-fit:contain !important;object-position:center !important;width:100% !important;height:100% !important}' +
             '.g-cf::before,.g-cf::after{display:none !important}' +
             '.g-cf figcaption{...}' +
-            '.g-cf figcaption *{...}';
+            '.g-cf figcaption *{color:inherit !important;text-shadow:none !important;background:none !important}' +
+            '.g-cfcount{display:none !important}';
         document.head.appendChild(st);
     })();
     /* ---------- justified layout: mixed portrait/landscape photos auto-fit into full rows, no blank space, no crop ---------- */
@@ -604,6 +721,8 @@
     (function() {
         var st = document.createElement('style');
         st.textContent =
+            '.g-rowwrap{position:relative}' +
+            '.g-rowwrap .g-nav{top:calc(var(--rh,300px) / 2);z-index:3}' +
             '.g-row{overflow:hidden !important;padding-bottom:0 !important;scroll-snap-type:none !important}' +
             '.g-train{display:flex !important;width:max-content !important;gap:0 !important;animation:g-trainmove var(--dur,40s) linear infinite !important}' +
             '.g-row:hover .g-train{animation-play-state:paused !important}' +
@@ -611,7 +730,10 @@
             '.g-train .g-item{flex:0 0 auto !important;width:auto !important;margin:0 1rem 0 0 !important;cursor:zoom-in}' +
             '.g-train .g-ph{aspect-ratio:auto !important;height:auto !important;width:auto !important;margin:0 !important;background:transparent !important;overflow:visible !important}' +
             '.g-train .g-ph img{height:var(--rh,300px) !important;width:auto !important;max-width:none !important;object-fit:contain !important;display:block}' +
-            '.g-train figcaption{width:0;min-width:100%;margin-top:.4rem;font-size:.85rem}' +
+            '.g-train .g-item{position:relative}' +
+            '.g-train figcaption{position:absolute !important;left:0;right:0;bottom:0;width:auto !important;min-width:0 !important;margin:0 !important;padding:1.6rem .8rem .6rem !important;font-size:.85rem;color:#fff !important;text-align:left;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,0)) !important;pointer-events:none}' +
+            '.g-train figcaption *{color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,.7);margin:0 !important}' +
+            '.g-train figcaption .g-title:empty{display:none !important}' +
             '@media(max-width:600px){.g-train .g-ph img{height:calc(var(--rh,300px) * .7) !important}}';
         document.head.appendChild(st);
     })();
@@ -711,6 +833,61 @@
             if (it && !e.target.closest('.g-nav')) lbOpen(ph, +it.dataset.i);
         });
 
+        /* row (train): moves by itself; the arrows step it to the previous / next photo */
+        var rw = sec.querySelector('.g-rowwrap');
+        if (rw) {
+            var tr = rw.querySelector('.g-train'),
+                kids = tr.children,
+                half = kids.length / 2,
+                pos = 0,
+                paused = false,
+                tween = null,
+                last = null;
+            tr.style.setProperty('animation', 'none', 'important'); /* we drive it from JS instead of CSS */
+            var offs = function(k) { return kids[k].offsetLeft - kids[0].offsetLeft; };
+            var span = function() { return offs(half); }; /* width of one full set of photos */
+            var step = function(dir) {
+                var w = span();
+                if (!w) return;
+                pos = ((pos % w) + w) % w;
+                var target = pos,
+                    k;
+                if (dir > 0) { /* next: first photo edge ahead of us */
+                    for (k = 0; k <= half; k++) { if (offs(k) > pos + 2) { target = offs(k); break; } }
+                } else { /* previous: last photo edge behind us */
+                    if (pos < 2) pos += w;
+                    for (k = half; k >= 0; k--) { if (offs(k) < pos - 2) { target = offs(k); break; } }
+                }
+                tween = { from: pos, to: target, t0: null, dur: 450 };
+            };
+            rw.querySelector('.g-nav.prev').addEventListener('click', function(e) { e.stopPropagation();
+                step(-1); });
+            rw.querySelector('.g-nav.next').addEventListener('click', function(e) { e.stopPropagation();
+                step(1); });
+            rw.addEventListener('mouseenter', function() { paused = true; });
+            rw.addEventListener('mouseleave', function() { paused = false; });
+            var frame = function(now) {
+                var w = span();
+                if (w) {
+                    if (tween) {
+                        if (tween.t0 === null) tween.t0 = now;
+                        var k = Math.min(1, (now - tween.t0) / tween.dur),
+                            e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+                        pos = tween.from + (tween.to - tween.from) * e;
+                        if (k >= 1) { pos = ((tween.to % w) + w) % w;
+                            tween = null; }
+                    } else if (!paused && !reduce && last !== null) {
+                        pos += w / (half * (+s.every || 4000)) * (now - last); /* same speed as before: every ms per photo */
+                        if (pos >= w) pos -= w;
+                    }
+                    tr.style.transform = 'translateX(' + (-pos) + 'px)';
+                }
+                last = now;
+                requestAnimationFrame(frame);
+            };
+            requestAnimationFrame(frame);
+        }
+
         /* filmstrip: click a thumbnail to switch, or let it auto-play (every: ms, speed: fade ms) */
         var fs = sec.querySelector('.g-film');
         if (fs) {
@@ -721,28 +898,54 @@
                 ths = fs.querySelectorAll('.g-th'),
                 fi = 0,
                 ftimer, fswap;
+            var fseq = 0,
+                fbusy = false;
+            /* the big photo and the highlighted thumbnail always change TOGETHER, after the new photo has loaded */
             var fgo = function(i) {
                 fi = (i + ths.length) % ths.length;
-                var p = ph[fi];
-                Array.prototype.forEach.call(ths, function(t, k) { t.classList.toggle('on', k === fi); });
-                strip.scrollLeft = ths[fi].offsetLeft - strip.clientWidth / 2 + ths[fi].clientWidth / 2;
+                var p = ph[fi],
+                    my = ++fseq,
+                    done = false;
+                fbusy = true;
                 clearTimeout(fswap);
                 big.classList.add('out');
                 fswap = setTimeout(function() {
-                    big.dataset.i = fi;
-                    bigImg.onerror = function() {
-                        bigImg.onerror = null;
-                        bigImg.src = PH;
+                    var show = function() {
+                        if (done || my !== fseq) return; /* a newer change took over */
+                        done = true;
+                        fbusy = false;
+                        big.dataset.i = fi;
+                        bigImg.alt = p.title || '';
+                        bigCap.innerHTML = cap(p);
+                        Array.prototype.forEach.call(ths, function(t, k) { t.classList.toggle('on', k === fi); });
+                        var sr = strip.getBoundingClientRect(),
+                            tr = ths[fi].getBoundingClientRect();
+                        strip.scrollTo({ left: strip.scrollLeft + (tr.left - sr.left) - sr.width / 2 + tr.width / 2, behavior: 'smooth' });
+                        big.classList.remove('out');
                     };
-                    bigImg.src = p.src;
-                    bigImg.alt = p.title || '';
-                    bigCap.innerHTML = cap(p);
-                    big.classList.remove('out');
+                    var pre = new Image();
+                    pre.onload = function() {
+                        bigImg.src = p.src;
+                        show();
+                    };
+                    pre.onerror = function() {
+                        bigImg.src = PH;
+                        show();
+                    };
+                    pre.src = p.src;
+                    setTimeout(function() {
+                        if (!done) {
+                            bigImg.src = p.src;
+                            show();
+                        }
+                    }, 6000); /* slow photo: show it anyway */
+                    var nx = ph[(fi + 1) % ph.length]; /* warm up the next photo */
+                    if (nx) new Image().src = nx.src;
                 }, s.speed != null ? +s.speed : 400);
             };
             var fplay = function() {
                 clearInterval(ftimer);
-                if (!reduce && ths.length > 1) ftimer = setInterval(function() { fgo(fi + 1); }, s.every || 3000);
+                if (!reduce && ths.length > 1) ftimer = setInterval(function() { if (!fbusy) fgo(fi + 1); }, s.every || 3000);
             };
             Array.prototype.forEach.call(ths, function(t, k) {
                 t.addEventListener('click', function() {
@@ -750,6 +953,10 @@
                     fplay();
                 });
             });
+            fs.querySelector('.g-farrow.prev').addEventListener('click', function() { fgo(fi - 1);
+                fplay(); });
+            fs.querySelector('.g-farrow.next').addEventListener('click', function() { fgo(fi + 1);
+                fplay(); });
             fs.addEventListener('mouseenter', function() { clearInterval(ftimer); });
             fs.addEventListener('mouseleave', fplay);
             fplay();
