@@ -1089,3 +1089,49 @@ a.btn { display: inline-block; }
 .demo-card code { font-family: 'JetBrains Mono', monospace; font-size: .85em; background: var(--border); padding: 0 .3em; }
 
 @media (prefers-reduced-motion: reduce) { .tile, .tile-ico, .tile-go { transition: none !important; } }
+
+
+/* ===== About page: supervisions, coursework, funding, volunteering, membership ===== */
+    /* Thesis / Project Supervisions: compact bullet list */
+    #supervisions .sup-list { list-style: disc; margin: 0; padding-left: 1.2rem; }
+    #supervisions .sup-list li { padding: .12rem 0; font-size: .88rem; line-height: 1.45; color: var(--ink-light); }
+    #supervisions .sup-list li::marker { color: var(--accent); }
+
+    /* ===== Coursework / Funding / Volunteering / Membership ===== */
+    .xv-sub { font-size: .72rem; letter-spacing: .1em; color: var(--accent-light); margin: -.5rem 0 1rem; }
+    /* coursework chips */
+    .xv-courses { columns: 2 15rem; column-gap: 1.25rem; margin: 0; padding: 0; }
+    .xv-courses li { break-inside: avoid; display: flex; align-items: center; gap: .6rem; margin: 0 0 .45rem; padding: .42rem .75rem; font-size: .88rem; line-height: 1.35; color: var(--ink-light); background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); transition: transform .2s ease, box-shadow .2s ease, border-color .2s; }
+    .xv-courses li::before { content: ""; width: .42rem; height: .42rem; flex: none; border-radius: 50%; background: var(--accent-light); }
+    .xv-courses li:hover { transform: translateX(4px); border-left-color: var(--accent-light); box-shadow: 0 8px 20px rgba(124,75,42,.12); }
+    .xv-courses small { color: var(--muted); font-size: .8em; }
+    /* funding cards */
+    .xv-fund { display: grid; gap: .9rem; }
+    .xv-fcard { position: relative; padding: 1.1rem 1.25rem 1rem 1.4rem; background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+    .xv-fcard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--accent), var(--accent-light)); }
+    .xv-fcard:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(124,75,42,.14); }
+    .xv-ftop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
+    .xv-fy { font-size: .7rem; letter-spacing: .08em; color: var(--muted); }
+    .xv-badge { font-size: .64rem; letter-spacing: .1em; padding: .12rem .55rem; color: var(--accent); border: 1px solid var(--accent); }
+    .xv-fcard h4 { font-size: 1.02rem; font-weight: 600; line-height: 1.4; font-style: italic; color: var(--ink); }
+    .xv-agency { margin-top: .55rem; font-size: .85rem; line-height: 1.5; color: var(--ink-light); }
+    .xv-agency::before { content: "Funding body: "; font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .04em; color: var(--muted); }
+    /* timeline (volunteering) */
+    .xv-tl { position: relative; margin: 0; padding: 0 0 0 1.5rem; }
+    .xv-tl::before { content: ""; position: absolute; left: .4rem; top: .5rem; bottom: .5rem; width: 2px; background: linear-gradient(var(--accent), var(--border)); }
+    .xv-tl li { position: relative; display: grid; gap: .1rem 1rem; padding: .55rem 0; }
+    @media (min-width: 640px) { .xv-tl li { grid-template-columns: 1fr auto; align-items: baseline; } }
+    .xv-tl li::before { content: ""; position: absolute; left: -1.5rem; top: 1rem; width: .85rem; height: .85rem; border-radius: 50%; background: var(--cream); border: 2px solid var(--accent); transition: background .2s, transform .2s; }
+    .xv-tl li:hover::before { background: var(--accent); transform: scale(1.2); }
+    .xv-tl p { font-size: .92rem; line-height: 1.55; color: var(--ink-light); }
+    .xv-tl strong { color: var(--ink); font-weight: 600; }
+    .xv-date { font-size: .74rem; font-style: italic; letter-spacing: .02em; color: var(--accent); white-space: nowrap; }
+    /* membership */
+    .xv-mem { display: grid; gap: .5rem; margin: 0; padding: 0; }
+    .xv-mem li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; padding: .55rem .9rem; background: var(--card); border: 1px solid var(--border); border-left: 3px solid #0E9AA7; font-size: .92rem; color: var(--ink-light); transition: transform .2s ease, box-shadow .2s ease; }
+    .xv-mem li:hover { transform: translateX(4px); box-shadow: 0 8px 20px rgba(14,154,167,.14); }
+    .xv-mem .xv-date { color: #0E9AA7; }
+    :root[data-theme="dark"] .xv-mem .xv-date { color: #4fd0dc; }
+    @media (prefers-reduced-motion: reduce) { .xv-courses li, .xv-fcard, .xv-mem li, .xv-tl li::before { transition: none !important; } }
+    @media print { .xv-fcard, .xv-mem li, .xv-courses li { break-inside: avoid; } }
+    
