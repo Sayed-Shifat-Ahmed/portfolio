@@ -149,7 +149,7 @@ img { display: block; max-width: 100%; }
 .panel { display: none; }
 .panel.show { display: block; }
 /* .section { padding-top: 0rem; padding-bottom: 0rem; } */
-.section-head { margin-top: 3rem; margin-bottom: 3rem; }
+.section-head { margin-top: 2rem; margin-bottom: 1rem; }
 .section h2 { font-weight: 600; font-size: 1.875rem; margin-bottom: 1rem; color: var(--ink); }
 .section-head .eyebrow { margin-bottom: .5rem; }
 .intro { max-width: 42rem; color: var(--ink-light); line-height: 1.65; }
@@ -724,8 +724,8 @@ a.btn { display: inline-block; }
 .g-chip { font-size: .72rem; letter-spacing: .04em; padding: .4rem .8rem; border: 1px solid var(--border); color: var(--ink-light); text-decoration: none; background: var(--card); transition: all .2s; }
 .g-chip:hover { border-color: var(--accent); color: var(--accent); }
 
-.g-section { padding: 2.5rem 0 3rem; border-top: 1px solid var(--border); scroll-margin-top: 5rem; }
-.g-head { max-width: 44rem; margin-bottom: 1.75rem; }
+.g-section { padding: 1rem 0 1rem; border-top: 1px solid var(--border); scroll-margin-top: 5rem; }
+.g-head { max-width: 44rem; margin-bottom: .5rem; }
 .g-num { font-size: .85rem; margin-bottom: .25rem; }
 .g-head h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: .6rem; }
 .g-purpose { color: var(--ink-light); line-height: 1.65; }

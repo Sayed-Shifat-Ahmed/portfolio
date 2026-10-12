@@ -23,7 +23,7 @@
 
         /* ---------------- Research papers ---------------- */
         {
-            image: '../images/project-image/biomedical.jpeg',
+            image: '../images/project-image/biomedical.jpg',
             meta: 'QPAIN · 2026',
             title: 'Development of a Compact Slotted Patch Antenna for Early Stage Breast Tumor Detection Using Microwave Technology',
             overview: 'A compact slotted microstrip patch antenna was developed for early breast tumor detection using microwave imaging. Designed on low-cost FR-4 at 1.9612 GHz, it achieved a −41.27 dB return loss and good tissue penetration. SAR analysis showed safe exposure levels (0.623 W/kg). Simulations using a multi-layer breast phantom demonstrated its potential for non-invasive, real-time breast cancer detection and localization.',
@@ -53,7 +53,7 @@
             linkUrl: 'https://www.sciencedirect.com/science/article/pii/S2405844024023399'
         },
          {
-            image: '../images/project-image/IV-fluid.png',
+            image: '../images/project-image/IV-fluid.jpg',
             meta: 'WIECON-ECE · 2022',
             title: 'Development of an Intravenous Fluid Monitoring, Warning, and Reverse Flow Blocking System',
             overview: 'This project besed upon developed an automated IV-fluid monitoring and alarm system using a microcontroller, load cell, switching valve, and GSM module. The system continuously monitors saline level, sends alerts when the bottle is nearly empty, and automatically stops the flow, improving patient safety and reducing nursing workload.',
@@ -94,7 +94,7 @@
 
 
         {
-            image: '../images/project-image/hiltown-iot.png',
+            image: '../images/project-image/hiltown-iot.jpg',
             meta: '',
             title: 'IoT Based Smart Energy Management and Hotel Automation System',
             overview: 'The proposed Smart Room Management System integrates RFID access control, IoT-based appliance control, human presence detection, door monitoring, and energy monitoring into a centralized platform. '+
@@ -106,7 +106,7 @@
 
 
         {
-            image: '../images/project-image/rural-iot.png',
+            image: '../images/project-image/rural-iot.jpg',
             meta: 'QPAIN 2025 · IEEE',
             title: 'IoT and Mobile App-Based Real-Time Remote E-Health Care System for Rural Communities in Bangladesh',
             overview: 'An IoT-based remote health monitoring system that measures body temperature, ECG and pulse with low-cost sensors (LM35, AD8232, SEN-11574) and sends the readings to the cloud for rural communities in Bangladesh. ' +
