@@ -149,7 +149,7 @@ img { display: block; max-width: 100%; }
 .panel { display: none; }
 .panel.show { display: block; }
 /* .section { padding-top: 0rem; padding-bottom: 0rem; } */
-.section-head { margin-bottom: 3rem; }
+.section-head { margin-top: 3rem; margin-bottom: 3rem; }
 .section h2 { font-weight: 600; font-size: 1.875rem; margin-bottom: 1rem; color: var(--ink); }
 .section-head .eyebrow { margin-bottom: .5rem; }
 .intro { max-width: 42rem; color: var(--ink-light); line-height: 1.65; }
@@ -1135,3 +1135,102 @@ a.btn { display: inline-block; }
     @media (prefers-reduced-motion: reduce) { .xv-courses li, .xv-fcard, .xv-mem li, .xv-tl li::before { transition: none !important; } }
     @media print { .xv-fcard, .xv-mem li, .xv-courses li { break-inside: avoid; } }
     
+
+
+/* ===== About page: full-page side padding ===== */
+#cv.container {
+  max-width: none;                              /* no width cap: padding controls the margins */
+  padding-left: clamp(1.5rem, 11.5vw, 16rem);   /* ~221px each side at 1920px */
+  padding-right: clamp(1.5rem, 11.5vw, 16rem);
+}
+
+#cv .section-head.split { margin-bottom: 1.5rem; }
+#cv .cv-block { padding-bottom: 1.1rem; margin-bottom: 1.1rem; }
+
+#cv .cv-grid { gap: 1.5rem; }
+@media (min-width: 900px) {
+  #cv .cv-grid { grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+}
+
+
+/* ===== About page: creative CV header (only the top "CURRICULUM VITAE" block) ===== */
+/* Theme: radiating antenna signal. CSS only: no HTML change needed. */
+#cv .section-head.split {
+  position: relative;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+#cv .section-head.split > * { position: relative; z-index: 1; }
+
+/* 1) radiating signal rings behind the buttons (an antenna "transmitting") */
+#cv .section-head.split::before {
+  content: "";
+  position: absolute; z-index: 0; pointer-events: none;
+  right: -7rem; top: -9rem; width: 28rem; height: 28rem;
+  background: repeating-radial-gradient(circle at center, transparent 0 16px, color-mix(in srgb, var(--accent) 24%, transparent) 16px 17px);
+  -webkit-mask-image: radial-gradient(circle at center, #000 0, transparent 68%);
+          mask-image: radial-gradient(circle at center, #000 0, transparent 68%);
+  animation: cvPulse 6s ease-in-out infinite;
+}
+
+/* 2) eyebrow: live "signal" dot + a line that grows out of it */
+#cv .section-head .eyebrow { display: flex; align-items: center; gap: .65rem; }
+#cv .section-head .eyebrow::before {
+  content: ""; flex: none; width: .55rem; height: .55rem; border-radius: 50%;
+  background: var(--accent-light);
+  animation: pulse-ring 2s ease-out infinite;
+}
+#cv .section-head .eyebrow::after {
+  content: ""; height: 1px; width: 0; max-width: 6rem; flex: 0 1 6rem;
+  background: linear-gradient(90deg, var(--accent-light), transparent);
+  animation: cvGrow 1.1s .3s cubic-bezier(.22,.68,0,1) forwards;
+}
+
+/* 3) name: warm shimmer sweeping across the letters */
+#cv .section-head h2 {
+  color: var(--ink);
+  background: linear-gradient(100deg, var(--ink) 0%, var(--ink) 40%, var(--accent-light) 50%, var(--ink) 60%, var(--ink) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cvShimmer 5s ease-in-out 1s infinite;
+}
+
+/* 4) degree line: accent bar on the left */
+#cv .section-head .intro {
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-light);
+}
+
+/* keep the two buttons side by side (the text column shrinks instead) */
+@media (min-width: 768px) {
+  #cv .section-head.split > div:first-child { min-width: 0; flex: 1 1 auto; }
+  #cv .cv-actions { flex: none; flex-wrap: nowrap; white-space: nowrap; }
+}
+
+/* 5) buttons: arrow that slides in on hover */
+#cv .cv-actions .btn { position: relative; padding: .75rem 1.1rem; }
+#cv .cv-actions .btn-primary::after { content: " ↓"; display: inline-block; transition: transform .25s; }
+#cv .cv-actions .btn-outline::after { content: " →"; display: inline-block; transition: transform .25s; }
+#cv .cv-actions .btn-primary:hover::after { transform: translateY(3px); }
+#cv .cv-actions .btn-outline:hover::after { transform: translateX(4px); }
+#cv .cv-actions .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+@keyframes cvPulse   { 0%,100% { transform: scale(1); opacity: .95; } 50% { transform: scale(1.07); opacity: .6; } }
+@keyframes cvGrow    { to { width: 6rem; } }
+@keyframes cvShimmer { 0%, 20% { background-position: 100% 0; } 70%, 100% { background-position: 0 0; } }
+
+@media (max-width: 767px) {
+  #cv .section-head.split::before { right: -12rem; top: -10rem; opacity: .7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cv .section-head.split::before,
+  #cv .section-head h2, #cv .section-head .eyebrow::before { animation: none !important; }
+  #cv .section-head .eyebrow::after { animation: none !important; width: 6rem; }
+}
+@media print {
+  #cv .section-head.split::before { display: none; }
+  #cv .section-head h2 { -webkit-text-fill-color: currentColor; background: none; }
+}

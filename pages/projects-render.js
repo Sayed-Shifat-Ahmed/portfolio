@@ -100,7 +100,7 @@
             overview: 'The proposed Smart Room Management System integrates RFID access control, IoT-based appliance control, human presence detection, door monitoring, and energy monitoring into a centralized platform. '+
             'The system is designed to give hotel management remote visibility and control over individual rooms, while reducing unnecessary appliance usage and improving overall energy efficiency.',
                     linkText: 'Read article',
-            linkUrl: '../pages/papers/HT-project.pdf'
+            linkUrl: '../papers/HT-project.pdf'
 
         },
 
