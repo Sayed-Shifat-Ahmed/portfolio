@@ -114,6 +114,7 @@
                     { src: '../images/certificate-image/QPAIN-2026-3.jpeg', title: 'QPAIN-2026' },
                     { src: '../images/certificate-image/MARSCON-1.jpeg', title: 'MARSCON-2026' },
                     { src: '../images/certificate-image/ICTP-2.jpeg', title: 'ICTP-2025' },
+                    { src: '../images/certificate-image/reviewer-certificate.jpeg', title: 'Reviewer Certificate from AEÜ - International Journal of Electronics and Communications (Elsevier).' },
                     { src: '../images/certificate-image/MARSCON-2.jpeg', title: 'MARSCON-2026' },
                     { src: '../images/certificate-image/PECCII-212-01.jpg', title: 'PECCII-2026' },
                     { src: '../images/certificate-image/QPAIN-1.png', title: 'QPAIN-2025' },
@@ -300,7 +301,7 @@
                 purpose: 'A slideshow of my favourite travel frames: the places, the light and the people met along the way. Time away from work with the people who make the journey enjoyable: friends, mentors and colleagues.',
                 photos: [
                     /*       { src: 'outings-1.jpg', title: 'Day trip', text: 'A relaxed day out with colleagues.', size: 'wide' },    */
-                    { src: '../images/gallery-image/niladri-lake-1.jpg', text: 'Niladri Lake, Sunamganj, Sylhet, Bangladesh', size: 'wide' },                
+                    { src: '../images/gallery-image/niladri-lake-1.jpg', text: 'Niladri Lake, Sunamganj, Sylhet, Bangladesh', size: 'wide' },
                     { src: '../images/gallery-image/padma-2.jpg', text: 'Padma River, Rajshahi, Bangladesh', size: 'wide' },
                     { src: '../images/gallery-image/puthia-rajbari.jpg', text: 'Puthia Rajbari, Rajshahi, Bangladesh', size: 'wide' },
                     { src: '../images/gallery-image/sundarban-4.jpg', text: 'Sundarban, Khulna, Bangladesh', size: 'wide' },
@@ -862,10 +863,14 @@
                 }
                 tween = { from: pos, to: target, t0: null, dur: 450 };
             };
-            rw.querySelector('.g-nav.prev').addEventListener('click', function(e) { e.stopPropagation();
-                step(-1); });
-            rw.querySelector('.g-nav.next').addEventListener('click', function(e) { e.stopPropagation();
-                step(1); });
+            rw.querySelector('.g-nav.prev').addEventListener('click', function(e) {
+                e.stopPropagation();
+                step(-1);
+            });
+            rw.querySelector('.g-nav.next').addEventListener('click', function(e) {
+                e.stopPropagation();
+                step(1);
+            });
             rw.addEventListener('mouseenter', function() { paused = true; });
             rw.addEventListener('mouseleave', function() { paused = false; });
             var frame = function(now) {
@@ -876,8 +881,10 @@
                         var k = Math.min(1, (now - tween.t0) / tween.dur),
                             e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
                         pos = tween.from + (tween.to - tween.from) * e;
-                        if (k >= 1) { pos = ((tween.to % w) + w) % w;
-                            tween = null; }
+                        if (k >= 1) {
+                            pos = ((tween.to % w) + w) % w;
+                            tween = null;
+                        }
                     } else if (!paused && !reduce && last !== null) {
                         pos += w / (half * (+s.every || 4000)) * (now - last); /* same speed as before: every ms per photo */
                         if (pos >= w) pos -= w;
@@ -955,10 +962,14 @@
                     fplay();
                 });
             });
-            fs.querySelector('.g-farrow.prev').addEventListener('click', function() { fgo(fi - 1);
-                fplay(); });
-            fs.querySelector('.g-farrow.next').addEventListener('click', function() { fgo(fi + 1);
-                fplay(); });
+            fs.querySelector('.g-farrow.prev').addEventListener('click', function() {
+                fgo(fi - 1);
+                fplay();
+            });
+            fs.querySelector('.g-farrow.next').addEventListener('click', function() {
+                fgo(fi + 1);
+                fplay();
+            });
             fs.addEventListener('mouseenter', function() { clearInterval(ftimer); });
             fs.addEventListener('mouseleave', fplay);
             fplay();
